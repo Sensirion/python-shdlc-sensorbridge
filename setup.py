@@ -40,6 +40,7 @@ setup(
     ],
     install_requires=[
         'sensirion-shdlc-driver[fwupdate]~=0.1.1',
+        'enum34;python_version<"3.4"',
     ],
     extras_require={
         'test': [
