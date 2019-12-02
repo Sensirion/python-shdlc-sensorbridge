@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>sensirion_shdlc_sensorbridge.definitions &mdash; Sensirion SEK-SensorBridge Python Driver 0.1.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Sensirion SEK-SensorBridge Python Driver
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../shdlc.html">SHDLC Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Sensirion SEK-SensorBridge Python Driver</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>sensirion_shdlc_sensorbridge.definitions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for sensirion_shdlc_sensorbridge.definitions</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># (c) Copyright 2019 Sensirion AG, Switzerland</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="k">import</span> <span class="n">IntEnum</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="SensorBridgePort"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.definitions.SensorBridgePort">[docs]</a><span class="k">class</span> <span class="nc">SensorBridgePort</span><span class="p">(</span><span class="n">IntEnum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An enum containing all available ports with their corresponding byte</span>
+<span class="sd">    values how they are transmitted over SHDLC.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ONE</span> <span class="o">=</span> <span class="mh">0x00</span>  <span class="c1">#: Port 1</span>
+    <span class="n">TWO</span> <span class="o">=</span> <span class="mh">0x01</span>  <span class="c1">#: Port 2</span>
+    <span class="n">ALL</span> <span class="o">=</span> <span class="mh">0xFF</span>  <span class="c1">#: All ports</span></div>
+
+
+<span class="c1">#: A dictionary containing all available voltages with their corresponding</span>
+<span class="c1">#: byte values how they are transmitted over SHDLC.</span>
+<span class="n">VOLTAGES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mf">1.2</span><span class="p">:</span> <span class="mh">0x00</span><span class="p">,</span>  <span class="c1"># 1.2V</span>
+    <span class="mf">1.5</span><span class="p">:</span> <span class="mh">0x04</span><span class="p">,</span>  <span class="c1"># 1.5V</span>
+    <span class="mf">1.8</span><span class="p">:</span> <span class="mh">0x01</span><span class="p">,</span>  <span class="c1"># 1.8V</span>
+    <span class="mf">2.1</span><span class="p">:</span> <span class="mh">0x05</span><span class="p">,</span>  <span class="c1"># 2.1V</span>
+    <span class="mf">2.4</span><span class="p">:</span> <span class="mh">0x06</span><span class="p">,</span>  <span class="c1"># 2.4V</span>
+    <span class="mf">2.7</span><span class="p">:</span> <span class="mh">0x07</span><span class="p">,</span>  <span class="c1"># 2.7V</span>
+    <span class="mf">3.0</span><span class="p">:</span> <span class="mh">0x08</span><span class="p">,</span>  <span class="c1"># 3.0V</span>
+    <span class="mf">3.3</span><span class="p">:</span> <span class="mh">0x02</span><span class="p">,</span>  <span class="c1"># 3.3V</span>
+    <span class="mf">3.6</span><span class="p">:</span> <span class="mh">0x09</span><span class="p">,</span>  <span class="c1"># 3.6V</span>
+    <span class="mf">4.5</span><span class="p">:</span> <span class="mh">0x0A</span><span class="p">,</span>  <span class="c1"># 4.5V</span>
+    <span class="mf">5.0</span><span class="p">:</span> <span class="mh">0x03</span><span class="p">,</span>  <span class="c1"># 5.0V</span>
+    <span class="mf">5.5</span><span class="p">:</span> <span class="mh">0x0B</span><span class="p">,</span>  <span class="c1"># 5.5V</span>
+<span class="p">}</span>
+
+<span class="c1">#: A dictionary containing all available I2C frequencies with their</span>
+<span class="c1">#: corresponding byte values how they are transmitted over SHDLC.</span>
+<span class="n">I2C_FREQUENCIES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mf">10e3</span><span class="p">:</span> <span class="mh">0x04</span><span class="p">,</span>  <span class="c1"># 10kHz</span>
+    <span class="mf">50e3</span><span class="p">:</span> <span class="mh">0x05</span><span class="p">,</span>  <span class="c1"># 50kHz</span>
+    <span class="mf">100e3</span><span class="p">:</span> <span class="mh">0x00</span><span class="p">,</span>  <span class="c1"># 100kHz</span>
+    <span class="mf">400e3</span><span class="p">:</span> <span class="mh">0x01</span><span class="p">,</span>  <span class="c1"># 400kHz</span>
+    <span class="mf">1e6</span><span class="p">:</span> <span class="mh">0x02</span><span class="p">,</span>  <span class="c1"># 1MHz</span>
+    <span class="mf">2e6</span><span class="p">:</span> <span class="mh">0x03</span><span class="p">,</span>  <span class="c1"># 2MHz</span>
+<span class="p">}</span>
+
+<span class="c1">#: A dictionary containing all available SPI frequencies with their</span>
+<span class="c1">#: corresponding byte values how they are transmitted over SHDLC.</span>
+<span class="n">SPI_FREQUENCIES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mf">330e3</span><span class="p">:</span> <span class="mh">0x00</span><span class="p">,</span>  <span class="c1"># 330kHz</span>
+    <span class="mf">600e3</span><span class="p">:</span> <span class="mh">0x01</span><span class="p">,</span>  <span class="c1"># 600kHz</span>
+    <span class="mf">1e6</span><span class="p">:</span> <span class="mh">0x02</span><span class="p">,</span>  <span class="c1"># 1MHz</span>
+    <span class="mf">5e6</span><span class="p">:</span> <span class="mh">0x03</span><span class="p">,</span>  <span class="c1"># 5MHz</span>
+    <span class="mf">10e6</span><span class="p">:</span> <span class="mh">0x04</span><span class="p">,</span>  <span class="c1"># 10MHz</span>
+    <span class="mf">21e6</span><span class="p">:</span> <span class="mh">0x05</span><span class="p">,</span>  <span class="c1"># 21MHz</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="port_to_byte"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.definitions.port_to_byte">[docs]</a><span class="k">def</span> <span class="nf">port_to_byte</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">accept_all</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert a port value to the corresponding byte value.</span>
+
+<span class="sd">    :param ~sensirion_shdlc_sensorbridge.definitions.SensorBridgePort port:</span>
+<span class="sd">        The port to convert.</span>
+<span class="sd">    :param accept_all:</span>
+<span class="sd">        If True, the value</span>
+<span class="sd">        :py:attr:`~sensirion_shdlc_sensorbridge.definitions.SensorBridgePort.ALL`</span>
+<span class="sd">        is accepted.</span>
+<span class="sd">    :raises ValueError:</span>
+<span class="sd">        If the passed port is not valid.</span>
+<span class="sd">    :return:</span>
+<span class="sd">        The corresponding byte value of the port.</span>
+<span class="sd">    :rtype: byte</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">accepted_values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">SensorBridgePort</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">accept_all</span><span class="p">:</span>
+        <span class="n">accepted_values</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">SensorBridgePort</span><span class="o">.</span><span class="n">ALL</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">port</span> <span class="ow">in</span> <span class="n">accepted_values</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">port</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid port &#39;</span><span class="si">{}</span><span class="s2">&#39; specified. Supported values are &quot;</span>
+                         <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">accepted_values</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="voltage_to_byte"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.definitions.voltage_to_byte">[docs]</a><span class="k">def</span> <span class="nf">voltage_to_byte</span><span class="p">(</span><span class="n">voltage</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert a voltage in Volts to the corresponding byte value.</span>
+
+<span class="sd">    :param int/float port:</span>
+<span class="sd">        The voltage to convert.</span>
+<span class="sd">    :raises ValueError:</span>
+<span class="sd">        If the passed voltage is not supported.</span>
+<span class="sd">    :return:</span>
+<span class="sd">        The corresponding byte value of the voltage.</span>
+<span class="sd">    :rtype: byte</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">voltage</span> <span class="ow">in</span> <span class="n">VOLTAGES</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">VOLTAGES</span><span class="p">[</span><span class="n">voltage</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid voltage &#39;</span><span class="si">{}</span><span class="s2">&#39; specified. Supported values &quot;</span>
+                         <span class="s2">&quot;are </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">voltage</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">VOLTAGES</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span></div>
+
+
+<div class="viewcode-block" id="i2c_frequency_to_byte"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.definitions.i2c_frequency_to_byte">[docs]</a><span class="k">def</span> <span class="nf">i2c_frequency_to_byte</span><span class="p">(</span><span class="n">frequency</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert an I2C frequency in Hz to the corresponding byte value.</span>
+
+<span class="sd">    :param int/float port:</span>
+<span class="sd">        The frequency to convert.</span>
+<span class="sd">    :raises ValueError:</span>
+<span class="sd">        If the passed frequency is not supported.</span>
+<span class="sd">    :return:</span>
+<span class="sd">        The corresponding byte value of the frequency.</span>
+<span class="sd">    :rtype: byte</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">frequency</span> <span class="ow">in</span> <span class="n">I2C_FREQUENCIES</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">I2C_FREQUENCIES</span><span class="p">[</span><span class="n">frequency</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid I2C frequency &#39;</span><span class="si">{}</span><span class="s2">&#39; specified. Supported &quot;</span>
+                         <span class="s2">&quot;values are </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">frequency</span><span class="p">,</span>
+                                                 <span class="nb">list</span><span class="p">(</span><span class="n">I2C_FREQUENCIES</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span></div>
+
+
+<div class="viewcode-block" id="spi_frequency_to_byte"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.definitions.spi_frequency_to_byte">[docs]</a><span class="k">def</span> <span class="nf">spi_frequency_to_byte</span><span class="p">(</span><span class="n">frequency</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert an SPI frequency in Hz to the corresponding byte value.</span>
+
+<span class="sd">    :param int/float port:</span>
+<span class="sd">        The frequency to convert.</span>
+<span class="sd">    :raises ValueError:</span>
+<span class="sd">        If the passed frequency is not supported.</span>
+<span class="sd">    :return:</span>
+<span class="sd">        The corresponding byte value of the frequency.</span>
+<span class="sd">    :rtype: byte</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">frequency</span> <span class="ow">in</span> <span class="n">SPI_FREQUENCIES</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">SPI_FREQUENCIES</span><span class="p">[</span><span class="n">frequency</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid SPI frequency &#39;</span><span class="si">{}</span><span class="s2">&#39; specified. Supported &quot;</span>
+                         <span class="s2">&quot;values are </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">frequency</span><span class="p">,</span>
+                                                 <span class="nb">list</span><span class="p">(</span><span class="n">SPI_FREQUENCIES</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019 Sensirion AG, Switzerland
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: 0.1.0
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Tags</dt>
+            <dd><a href="definitions.html">0.1.0</a></dd>
+        </dl>
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="../../../master/index.html">master</a></dd>
+            <dd><a href="../../../prepare-release/index.html">prepare-release</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
