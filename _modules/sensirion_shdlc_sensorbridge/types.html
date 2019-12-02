@@ -1,0 +1,353 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>sensirion_shdlc_sensorbridge.types &mdash; Sensirion SEK-SensorBridge Python Driver 0.1.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Sensirion SEK-SensorBridge Python Driver
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../shdlc.html">SHDLC Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Sensirion SEK-SensorBridge Python Driver</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>sensirion_shdlc_sensorbridge.types</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for sensirion_shdlc_sensorbridge.types</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># (c) Copyright 2019 Sensirion AG, Switzerland</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">sensirion_shdlc_driver.errors</span> <span class="k">import</span> <span class="n">ShdlcResponseError</span>
+<span class="kn">from</span> <span class="nn">.i2c_errors</span> <span class="k">import</span> <span class="n">i2c_error_from_code</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="RepeatedTransceiveHandle"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.types.RepeatedTransceiveHandle">[docs]</a><span class="k">class</span> <span class="nc">RepeatedTransceiveHandle</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents a handle to a repeated I2C transceive operation. Use only</span>
+<span class="sd">    internally, usually users don&#39;t have to care about this type.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="RepeatedTransceiveHandle.__init__"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.types.RepeatedTransceiveHandle.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_handle</span><span class="p">,</span> <span class="n">rx_length</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a new handle.</span>
+
+<span class="sd">        :param byte raw_handle:</span>
+<span class="sd">            Handle as returned from the &quot;start repeated transceive&quot; command.</span>
+<span class="sd">        :param rx_length:</span>
+<span class="sd">            Number of bytes which the corresponding repeated transceive</span>
+<span class="sd">            reads from the I2C device.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">RepeatedTransceiveHandle</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="c1">#: The raw handle (byte) as received from SensorBridge.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">raw_handle</span> <span class="o">=</span> <span class="n">raw_handle</span>
+
+        <span class="c1">#: The response length (int) of the corresponding repeated transceive</span>
+        <span class="c1">#: operation.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rx_length</span> <span class="o">=</span> <span class="n">rx_length</span></div></div>
+
+
+<div class="viewcode-block" id="BufferedValue"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.types.BufferedValue">[docs]</a><span class="k">class</span> <span class="nc">BufferedValue</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents a buffered value from a repeated I2C transceive operation. It</span>
+<span class="sd">    interprets the raw status and RX data from the buffer and provides a</span>
+<span class="sd">    convenient API to access them.</span>
+
+<span class="sd">    With the :py:attr:`raw_status` and :py:attr:`raw_data` you can access the</span>
+<span class="sd">    raw data as received from the device. But the property</span>
+<span class="sd">    :py:meth:`~sensirion_shdlc_sensorbridge.types.BufferedValue.data` provides</span>
+<span class="sd">    a more convenient interface since it returns the data if it is valid and</span>
+<span class="sd">    raises an exception if it is not valid.</span>
+
+<span class="sd">    :param bytes rx_data:</span>
+<span class="sd">        The raw buffer data as received from the device.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="BufferedValue.__init__"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.types.BufferedValue.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rx_data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates an instance from the received raw data.</span>
+
+<span class="sd">        :param str rx_data:</span>
+<span class="sd">            Received raw data from SensorBridge, containing the status byte</span>
+<span class="sd">            and the received data from the I2C read operation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">BufferedValue</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="c1">#: The raw status (byte) of the I2C transceive operation.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">raw_status</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="n">rx_data</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1">#: The raw received I2C data. Attention: This data might be invalid if</span>
+        <span class="c1">#: the transceive operation was not successful!</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">raw_data</span> <span class="o">=</span> <span class="n">rx_data</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+
+        <span class="c1">#: An exception of the occurred I2C error or None if the transceive</span>
+        <span class="c1">#: operation was successful.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">error</span> <span class="o">=</span> <span class="n">i2c_error_from_code</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw_status</span><span class="p">)</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the received data if it is valid, or raises an exception if</span>
+<span class="sd">        an I2C error occurred.</span>
+
+<span class="sd">        :raises ~sensirion_shdlc_sensorbridge.i2c_errors.SensorBridgeI2cError:</span>
+<span class="sd">            If an I2C error occurred, i.e. no valid data is available.</span>
+<span class="sd">        :return:</span>
+<span class="sd">            The received bytes.</span>
+<span class="sd">        :rtype:</span>
+<span class="sd">            bytes</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">error</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_data</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">error</span></div>
+
+
+<div class="viewcode-block" id="ReadBufferResponse"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.types.ReadBufferResponse">[docs]</a><span class="k">class</span> <span class="nc">ReadBufferResponse</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Helper class representing the response to the &quot;read buffer&quot; command,</span>
+<span class="sd">    i.e. of the method</span>
+<span class="sd">    :py:meth:`~sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.read_buffer`.</span>
+
+<span class="sd">    The class provides some public members which you can access directly.</span>
+<span class="sd">    &quot;&quot;&quot;</span>  <span class="c1"># noqa: E501</span>
+<div class="viewcode-block" id="ReadBufferResponse.__init__"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.types.ReadBufferResponse.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rx_length</span><span class="p">,</span> <span class="n">lost_bytes</span><span class="p">,</span> <span class="n">remaining_bytes</span><span class="p">,</span> <span class="n">rx_data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates an instance from the raw data received from the device.</span>
+
+<span class="sd">        :param int rx_length:</span>
+<span class="sd">            The read data length of the repeated transceive from which the</span>
+<span class="sd">            response is coming from.</span>
+<span class="sd">        :param int lost_bytes:</span>
+<span class="sd">            Number of bytes lost (received from the &quot;read buffer&quot; command).</span>
+<span class="sd">        :param int remaining_bytes:</span>
+<span class="sd">            Number of bytes remaining in the buffer (received from the</span>
+<span class="sd">            &quot;read buffer&quot; command).</span>
+<span class="sd">        :param bytes rx_data:</span>
+<span class="sd">            Raw received data bytes containing multiple I2C response status and</span>
+<span class="sd">            data received from the I2C device.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ReadBufferResponse</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="c1">#: Number of lost bytes (int) due to buffer overrun.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lost_bytes</span> <span class="o">=</span> <span class="n">lost_bytes</span>
+
+        <span class="c1">#: Number of remaining bytes in the buffer after reading it. If the</span>
+        <span class="c1">#: whole buffer was read out, this is zero.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">remaining_bytes</span> <span class="o">=</span> <span class="n">remaining_bytes</span>
+
+        <span class="c1">#: The received values (list of</span>
+        <span class="c1">#: :py:class:`~sensirion_shdlc_sensorbridge.types.BufferedValue`)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># Check if the received data is a multiple of the expected packet size</span>
+        <span class="n">packet_length</span> <span class="o">=</span> <span class="n">rx_length</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># rx_length plus status byte</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rx_data</span><span class="p">)</span> <span class="o">%</span> <span class="n">packet_length</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ShdlcResponseError</span><span class="p">(</span>
+                <span class="s2">&quot;Received data length (</span><span class="si">{}</span><span class="s2">) is not a multiple of the expected &quot;</span>
+                <span class="s2">&quot;packet length (</span><span class="si">{}</span><span class="s2">).&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rx_data</span><span class="p">),</span> <span class="n">packet_length</span><span class="p">),</span>
+                <span class="n">rx_data</span><span class="p">)</span>
+
+        <span class="c1"># Split raw rx_data into packets and interpret them</span>
+        <span class="n">number_of_packets</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rx_data</span><span class="p">)</span> <span class="o">//</span> <span class="n">packet_length</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">number_of_packets</span><span class="p">):</span>
+            <span class="n">start_index</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">packet_length</span>
+            <span class="n">packet_data</span> <span class="o">=</span> <span class="n">rx_data</span><span class="p">[</span><span class="n">start_index</span><span class="p">:</span><span class="n">start_index</span> <span class="o">+</span> <span class="n">packet_length</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">BufferedValue</span><span class="p">(</span><span class="n">packet_data</span><span class="p">))</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019 Sensirion AG, Switzerland
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: master
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="../../master/_modules/sensirion_shdlc_sensorbridge/types.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
