@@ -1,7 +1,7 @@
 # Python Driver for Sensirion SEK-SensorBridge
 
 This repository contains the SHDLC driver for the
-[Sensirion SEK-SensorBridge](https://www.sensirion.com/sek-sensorbridge/)
+[Sensirion SEK-SensorBridge](https://www.sensirion.com/sensorbridge/)
 as a Python package. For details, please read the package description in
 [README.rst](README.rst).
 
