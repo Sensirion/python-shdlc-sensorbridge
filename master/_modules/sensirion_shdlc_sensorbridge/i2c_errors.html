@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>sensirion_shdlc_sensorbridge.i2c_errors &mdash; Sensirion SEK-SensorBridge Python Driver 0.1.1 documentation</title>
+  <title>sensirion_shdlc_sensorbridge.i2c_errors &mdash; Sensirion SEK-SensorBridge Python Driver 0.1.2 documentation</title>
   
 
   
@@ -62,7 +62,7 @@
             
             
               <div class="version">
-                0.1.1
+                0.1.2
               </div>
             
           
@@ -155,9 +155,9 @@
             
   <h1>Source code for sensirion_shdlc_sensorbridge.i2c_errors</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
-<span class="c1"># (c) Copyright 2019 Sensirion AG, Switzerland</span>
+<span class="c1"># (c) Copyright 2020 Sensirion AG, Switzerland</span>
 
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
 
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
@@ -167,7 +167,7 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    I2C transceive error.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-<div class="viewcode-block" id="SensorBridgeI2cError.__init__"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.i2c_errors.SensorBridgeI2cError.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Unknown&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="SensorBridgeI2cError.__init__"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.i2c_errors.SensorBridgeI2cError.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Unknown&quot;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">SensorBridgeI2cError</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="s2">&quot;I2C transceive error: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
         <span class="p">)</span>
@@ -179,7 +179,7 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    I2C transceive NACK error.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-<div class="viewcode-block" id="SensorBridgeI2cNackError.__init__"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.i2c_errors.SensorBridgeI2cNackError.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="SensorBridgeI2cNackError.__init__"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.i2c_errors.SensorBridgeI2cNackError.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">SensorBridgeI2cNackError</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="mh">0x01</span><span class="p">,</span>
             <span class="s2">&quot;NACK (byte not acknowledged)&quot;</span>
@@ -190,7 +190,7 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    I2C transceive timeout error.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-<div class="viewcode-block" id="SensorBridgeI2cTimeoutError.__init__"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.i2c_errors.SensorBridgeI2cTimeoutError.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="SensorBridgeI2cTimeoutError.__init__"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.i2c_errors.SensorBridgeI2cTimeoutError.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">SensorBridgeI2cTimeoutError</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="mh">0x02</span><span class="p">,</span>
             <span class="s2">&quot;Timeout&quot;</span>
@@ -201,7 +201,7 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    I2C repeated transceive timing error.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-<div class="viewcode-block" id="SensorBridgeI2cTimingError.__init__"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.i2c_errors.SensorBridgeI2cTimingError.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="SensorBridgeI2cTimingError.__init__"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.i2c_errors.SensorBridgeI2cTimingError.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">SensorBridgeI2cTimingError</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="mh">0x03</span><span class="p">,</span>
             <span class="s2">&quot;Invalid timing (frequency, interval, timeout or delay)&quot;</span>

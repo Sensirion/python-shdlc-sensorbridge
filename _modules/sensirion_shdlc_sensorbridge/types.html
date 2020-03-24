@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>sensirion_shdlc_sensorbridge.types &mdash; Sensirion SEK-SensorBridge Python Driver 0.1.1 documentation</title>
+  <title>sensirion_shdlc_sensorbridge.types &mdash; Sensirion SEK-SensorBridge Python Driver 0.1.2 documentation</title>
   
 
   
@@ -62,7 +62,7 @@
             
             
               <div class="version">
-                0.1.1
+                0.1.2
               </div>
             
           
@@ -155,11 +155,11 @@
             
   <h1>Source code for sensirion_shdlc_sensorbridge.types</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
-<span class="c1"># (c) Copyright 2019 Sensirion AG, Switzerland</span>
+<span class="c1"># (c) Copyright 2020 Sensirion AG, Switzerland</span>
 
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
-<span class="kn">from</span> <span class="nn">sensirion_shdlc_driver.errors</span> <span class="k">import</span> <span class="n">ShdlcResponseError</span>
-<span class="kn">from</span> <span class="nn">.i2c_errors</span> <span class="k">import</span> <span class="n">i2c_error_from_code</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">sensirion_shdlc_driver.errors</span> <span class="kn">import</span> <span class="n">ShdlcResponseError</span>
+<span class="kn">from</span> <span class="nn">.i2c_errors</span> <span class="kn">import</span> <span class="n">i2c_error_from_code</span>
 
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
@@ -170,7 +170,7 @@
 <span class="sd">    Represents a handle to a repeated I2C transceive operation. Use only</span>
 <span class="sd">    internally, usually users don&#39;t have to care about this type.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-<div class="viewcode-block" id="RepeatedTransceiveHandle.__init__"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.types.RepeatedTransceiveHandle.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_handle</span><span class="p">,</span> <span class="n">rx_length</span><span class="p">):</span>
+<div class="viewcode-block" id="RepeatedTransceiveHandle.__init__"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.types.RepeatedTransceiveHandle.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raw_handle</span><span class="p">,</span> <span class="n">rx_length</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates a new handle.</span>
 
@@ -205,7 +205,7 @@
 <span class="sd">    :param bytes rx_data:</span>
 <span class="sd">        The raw buffer data as received from the device.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-<div class="viewcode-block" id="BufferedValue.__init__"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.types.BufferedValue.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rx_data</span><span class="p">):</span>
+<div class="viewcode-block" id="BufferedValue.__init__"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.types.BufferedValue.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rx_data</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates an instance from the received raw data.</span>
 
@@ -253,7 +253,7 @@
 
 <span class="sd">    The class provides some public members which you can access directly.</span>
 <span class="sd">    &quot;&quot;&quot;</span>  <span class="c1"># noqa: E501</span>
-<div class="viewcode-block" id="ReadBufferResponse.__init__"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.types.ReadBufferResponse.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rx_length</span><span class="p">,</span> <span class="n">lost_bytes</span><span class="p">,</span> <span class="n">remaining_bytes</span><span class="p">,</span> <span class="n">rx_data</span><span class="p">):</span>
+<div class="viewcode-block" id="ReadBufferResponse.__init__"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.types.ReadBufferResponse.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rx_length</span><span class="p">,</span> <span class="n">lost_bytes</span><span class="p">,</span> <span class="n">remaining_bytes</span><span class="p">,</span> <span class="n">rx_data</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates an instance from the raw data received from the device.</span>
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Quick Start &mdash; Sensirion SEK-SensorBridge Python Driver 0.1.1 documentation</title>
+  <title>Quick Start &mdash; Sensirion SEK-SensorBridge Python Driver 0.1.2 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.1.1
+                0.1.2
               </div>
             
           
@@ -171,9 +171,9 @@
     <span class="n">device</span> <span class="o">=</span> <span class="n">SensorBridgeShdlcDevice</span><span class="p">(</span><span class="n">ShdlcConnection</span><span class="p">(</span><span class="n">port</span><span class="p">),</span> <span class="n">slave_address</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
     <span class="c1"># Print some device information</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Version: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">device</span><span class="o">.</span><span class="n">get_version</span><span class="p">()))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Product Name: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">device</span><span class="o">.</span><span class="n">get_product_name</span><span class="p">()))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Serial Number: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">device</span><span class="o">.</span><span class="n">get_serial_number</span><span class="p">()))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Version: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">device</span><span class="o">.</span><span class="n">get_version</span><span class="p">()))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Product Name: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">device</span><span class="o">.</span><span class="n">get_product_name</span><span class="p">()))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Serial Number: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">device</span><span class="o">.</span><span class="n">get_serial_number</span><span class="p">()))</span>
 
     <span class="c1"># Enable port 1 with an I2C frequency of 400kHz and a voltage of 1.8V</span>
     <span class="n">device</span><span class="o">.</span><span class="n">set_i2c_frequency</span><span class="p">(</span><span class="n">SensorBridgePort</span><span class="o">.</span><span class="n">ONE</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="mf">400e3</span><span class="p">)</span>
@@ -184,18 +184,18 @@
     <span class="n">rx_data</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">transceive_i2c</span><span class="p">(</span>
         <span class="n">SensorBridgePort</span><span class="o">.</span><span class="n">ONE</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="mh">0x70</span><span class="p">,</span> <span class="n">tx_data</span><span class="o">=</span><span class="p">[</span><span class="mh">0x78</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">],</span>
         <span class="n">rx_length</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">timeout_us</span><span class="o">=</span><span class="mf">100e3</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Received data: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rx_data</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Received data: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rx_data</span><span class="p">))</span>
 
     <span class="c1"># Perform asynchronous I2C transceive on port 1</span>
     <span class="n">handle</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">start_repeated_i2c_transceive</span><span class="p">(</span>
         <span class="n">SensorBridgePort</span><span class="o">.</span><span class="n">ONE</span><span class="p">,</span> <span class="n">interval_us</span><span class="o">=</span><span class="mf">10e3</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="mh">0x70</span><span class="p">,</span>
         <span class="n">tx_data</span><span class="o">=</span><span class="p">[</span><span class="mh">0x78</span><span class="p">,</span> <span class="mh">0x66</span><span class="p">],</span> <span class="n">rx_length</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">timeout_us</span><span class="o">=</span><span class="mf">100e3</span><span class="p">,</span> <span class="n">read_delay_us</span><span class="o">=</span><span class="mf">10e3</span><span class="p">)</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>  <span class="c1"># let the device perform the repeated transceives</span>
-    <span class="nb">buffer</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">read_buffer</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
+    <span class="n">buffer</span> <span class="o">=</span> <span class="n">device</span><span class="o">.</span><span class="n">read_buffer</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
     <span class="n">device</span><span class="o">.</span><span class="n">stop_repeated_i2c_transceive</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Lost bytes: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">buffer</span><span class="o">.</span><span class="n">lost_bytes</span><span class="p">))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Remaining bytes: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">buffer</span><span class="o">.</span><span class="n">remaining_bytes</span><span class="p">))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Buffered values: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">([</span><span class="n">value</span><span class="o">.</span><span class="n">data</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">buffer</span><span class="o">.</span><span class="n">values</span><span class="p">]))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lost bytes: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">buffer</span><span class="o">.</span><span class="n">lost_bytes</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Remaining bytes: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">buffer</span><span class="o">.</span><span class="n">remaining_bytes</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Buffered values: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">([</span><span class="n">value</span><span class="o">.</span><span class="n">data</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">buffer</span><span class="o">.</span><span class="n">values</span><span class="p">]))</span>
 </pre></div>
 </div>
 <div class="admonition note">

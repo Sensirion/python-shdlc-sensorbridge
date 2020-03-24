@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>API Reference &mdash; Sensirion SEK-SensorBridge Python Driver 0.1.1 documentation</title>
+  <title>API Reference &mdash; Sensirion SEK-SensorBridge Python Driver 0.1.2 documentation</title>
   
 
   
@@ -63,7 +63,7 @@
             
             
               <div class="version">
-                0.1.1
+                0.1.2
               </div>
             
           
@@ -640,7 +640,7 @@ percent) as parameter.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The used SHDLC connection.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ShdlcConnection</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.connection.ShdlcConnection" title="(in Sensirion SHDLC Python Driver v0.1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShdlcConnection</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -654,7 +654,7 @@ percent) as parameter.</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>command</strong> (<em>ShdlcCommand</em>) – The command to execute.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>command</strong> (<a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.command.ShdlcCommand" title="(in Sensirion SHDLC Python Driver v0.1.3)"><em>ShdlcCommand</em></a>) – The command to execute.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The interpreted response of the executed command.</td>
 </tr>
@@ -666,7 +666,10 @@ percent) as parameter.</li>
 <dt id="sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.get_article_code">
 <code class="descname">get_article_code</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.get_article_code" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the article code of the device.</p>
-<p>Note: This command is not supported by every product type.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This command is not supported by every product type.</p>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -683,7 +686,10 @@ percent) as parameter.</li>
 <dt id="sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.get_product_name">
 <code class="descname">get_product_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.get_product_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the product name of the device.</p>
-<p>Note: This command is not supported by every product type.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This command is not supported by every product type.</p>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -705,7 +711,7 @@ type”) can be used to detect what kind of SHDLC product is connected.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>as_int</strong> (<em>bool</em>) – If True, the product type is returned as an
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>as_int</strong> (<em>bool</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the product type is returned as an
 integer, otherwise as a string of hexadecimal
 digits (default).</td>
 </tr>
@@ -756,12 +762,14 @@ digits.</td>
 <dd><p>Get the error flag which was received with the last response of the
 device. So this flag gets updated with every command sent to the
 device. If the flag is True, the exact error reason can be read with
-the method get_error_state().</p>
+the method
+<a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.device.ShdlcDevice.get_error_state" title="(in Sensirion SHDLC Python Driver v0.1.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_error_state()</span></code></a>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">When creating an instance of the ShdlcDevice, this property
-is initialized with False and will not be updated until you
-send the first command to the device.</p>
+<p class="last">When creating an instance of
+<a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.device.ShdlcDevice" title="(in Sensirion SHDLC Python Driver v0.1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShdlcDevice</span></code></a>, this
+property is initialized with <code class="docutils literal notranslate"><span class="pre">False</span></code> and will not be
+updated until you send the first command to the device.</p>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -788,29 +796,27 @@ baudrate.</p>
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">If you pass <cite>True</cite> to the argument <cite>update_driver</cite>, the
-baudrate of the underlaying
+<p class="last">If you pass <code class="docutils literal notranslate"><span class="pre">True</span></code> to the argument <code class="docutils literal notranslate"><span class="pre">update_driver</span></code>,
+the baudrate of the underlaying
 <a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.port.ShdlcPort" title="(in Sensirion SHDLC Python Driver v0.1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShdlcPort</span></code></a> object
 is changed. As the baudrate applies to the whole bus (with
 all its slaves), you might no longer be able to
 communicate with other slaves. Generally you should change
 the baudrate of all slaves consecutively, and only set
-<cite>update_driver</cite> to <cite>True</cite> the last time.</p>
+<code class="docutils literal notranslate"><span class="pre">update_driver</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> the last time.</p>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>baudrate</strong> (<em>int</em>) – The new baudrate. See device documentation for a
-list of supported baudrates. Many devices support
-the baudrates 9600, 19200 and 115200.</li>
+<li><strong>baudrate</strong> (<em>int</em>) – The new baudrate. See device documentation for a list of supported
+baudrates. Many devices support the baudrates 9600, 19200 and
+115200.</li>
 <li><strong>update_driver</strong> (<em>bool</em>) – If true, the baudrate of the
-<a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.port.ShdlcPort" title="(in Sensirion SHDLC Python Driver v0.1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShdlcPort</span></code></a>
-object is also updated with the baudrate.
-This is needed to allow further
-communication with the device, as its
-baudrate has changed.</li>
+<a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.port.ShdlcPort" title="(in Sensirion SHDLC Python Driver v0.1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShdlcPort</span></code></a> object is also
+updated with the baudrate. This is needed to allow further
+communication with the device, as its baudrate has changed.</li>
 </ul>
 </td>
 </tr>
@@ -841,13 +847,13 @@ only be fixed by disconnecting one of the slaves.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>slave_address</strong> (<em>byte</em>) – The new slave address [0..254]. The address
-255 is reserved for broadcasts.</li>
-<li><strong>update_driver</strong> (<em>bool</em>) – If true, the property
-<a class="reference internal" href="#sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.slave_address" title="sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.slave_address"><code class="xref py py-attr docutils literal notranslate"><span class="pre">slave_address</span></code></a> of this object is
-also updated with the new address. This is
-needed to allow further communication with
-the device, as its address has changed.</li>
+<li><strong>slave_address</strong> (<em>byte</em>) – The new slave address [0..254]. The address 255 is reserved for
+broadcasts.</li>
+<li><strong>update_driver</strong> (<em>bool</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the property
+<a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.device.ShdlcDevice.slave_address" title="(in Sensirion SHDLC Python Driver v0.1.3)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">slave_address</span></code></a>
+of this object is also updated with the new address. This is
+needed to allow further communication with the device, as its
+address has changed.</li>
 </ul>
 </td>
 </tr>
@@ -2016,7 +2022,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -2131,7 +2137,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">String containing the product type.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
 </tr>
 </tbody>
 </table>
@@ -2147,7 +2153,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -2242,7 +2248,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">String containing the product name.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
 </tr>
 </tbody>
 </table>
@@ -2258,7 +2264,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -2353,7 +2359,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">String containing the article code.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
 </tr>
 </tbody>
 </table>
@@ -2369,7 +2375,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -2464,7 +2470,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">String containing the serial number.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
 </tr>
 </tbody>
 </table>
@@ -2480,7 +2486,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -2595,7 +2601,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -2744,7 +2750,7 @@ Protocol minor version number.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -2859,7 +2865,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -3008,7 +3014,7 @@ can only be fixed by disconnecting one of the slaves.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -3123,7 +3129,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -3269,7 +3275,7 @@ Default is 460800 bit/s.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -3384,7 +3390,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -3533,7 +3539,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -3668,7 +3674,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -3808,7 +3814,7 @@ voltage will be applied.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -3943,7 +3949,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -4087,7 +4093,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -4222,7 +4228,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -4357,7 +4363,7 @@ range.</p>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Array of bytes containing all addresses from devices which
 responded to the scan.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytearray</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytes</td>
 </tr>
 </tbody>
 </table>
@@ -4373,7 +4379,7 @@ responded to the scan.</td>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -4488,7 +4494,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -4611,7 +4617,7 @@ response. Set to zero if no read operation is needed.</li>
 <li><strong>timeout_us</strong> (<em>int</em>) – I2C timeout in microseconds when reading bytes. If a frame is
 NACK’d it will be retried up to the timeout value. Same applies for
 clock stretching.</li>
-<li><strong>tx_data</strong> (<em>bytearray</em>) – Bytes to send (if any).</li>
+<li><strong>tx_data</strong> (<em>bytes</em>) – Bytes to send (if any).</li>
 </ul>
 </td>
 </tr>
@@ -4628,7 +4634,7 @@ clock stretching.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">If needed/available, the bytes from the I2C read are returned.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytearray</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytes</td>
 </tr>
 </tbody>
 </table>
@@ -4644,7 +4650,7 @@ clock stretching.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -4739,7 +4745,7 @@ a device reset) are executed after the response is sent.</p>
 <li>0x01: Port 2</li>
 </ul>
 </li>
-<li><strong>tx_data</strong> (<em>bytearray</em>) – Bytes to send (if any).</li>
+<li><strong>tx_data</strong> (<em>bytes</em>) – Bytes to send (if any).</li>
 </ul>
 </td>
 </tr>
@@ -4756,7 +4762,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">If needed/available, the bytes from the I2C read are returned.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytearray</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytes</td>
 </tr>
 </tbody>
 </table>
@@ -4772,7 +4778,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -4887,7 +4893,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -5019,7 +5025,7 @@ stretching.</li>
 <li><strong>read_delay_us</strong> (<em>int</em>) – This time will be inserted between the write and the read frame. to
 allow a device taking a certain amount of time for its
 measurements. The delay must be smaller than the specified timeout.</li>
-<li><strong>tx_data</strong> (<em>bytearray</em>) – Bytes to send (if any).</li>
+<li><strong>tx_data</strong> (<em>bytes</em>) – Bytes to send (if any).</li>
 </ul>
 </td>
 </tr>
@@ -5042,7 +5048,7 @@ measurements. The delay must be smaller than the specified timeout.</li>
 tasks and they are identified by the unique number.</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytearray</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytes</td>
 </tr>
 </tbody>
 </table>
@@ -5058,7 +5064,7 @@ tasks and they are identified by the unique number.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -5173,7 +5179,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -5300,7 +5306,7 @@ returned.</td>
 Number of bytes lost due to buffer overrun.</li>
 <li>remaining_bytes (int) -
 Number of bytes remaining in the buffer.</li>
-<li>rx_data (bytearray) -
+<li>rx_data (bytes) -
 Buffered values. The data is returned in
 <code class="docutils literal notranslate"><span class="pre">n*[header][readI2cDataOfOneTransceive]</span></code> where header:<ul>
 <li>0: valid data</li>
@@ -5329,7 +5335,7 @@ requested data rate</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -5444,7 +5450,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -5569,7 +5575,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -5704,7 +5710,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -5855,7 +5861,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -5990,7 +5996,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -6107,7 +6113,7 @@ a device reset) are executed after the response is sent.</p>
 </li>
 <li><strong>length</strong> (<em>int</em>) – Count of bytes to send. This amount of bytes has to be attached to
 the command.</li>
-<li><strong>tx_data</strong> (<em>bytearray</em>) – Bytes to send.</li>
+<li><strong>tx_data</strong> (<em>bytes</em>) – Bytes to send.</li>
 </ul>
 </td>
 </tr>
@@ -6124,7 +6130,7 @@ the command.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Received bytes.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytearray</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytes</td>
 </tr>
 </tbody>
 </table>
@@ -6140,7 +6146,7 @@ the command.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -6255,7 +6261,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -6386,7 +6392,7 @@ device on a bus.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -6521,7 +6527,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -6666,7 +6672,7 @@ measured voltage is always positive and in the range of 0-5.5V.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -6781,7 +6787,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -6905,7 +6911,7 @@ accept new commands until fully booted (wait at least 1 s).</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -7027,7 +7033,7 @@ then ready to receive the new firmware with the update data command.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -7141,7 +7147,7 @@ the last frame.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytearray</em>) – Firmware hex data in binary format.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Firmware hex data in binary format.</td>
 </tr>
 </tbody>
 </table>
@@ -7157,7 +7163,7 @@ the last frame.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -7292,7 +7298,7 @@ checksum.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>

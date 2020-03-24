@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>API Reference &mdash; Sensirion SEK-SensorBridge Python Driver 0.1.1 documentation</title>
+  <title>API Reference &mdash; Sensirion SEK-SensorBridge Python Driver 0.1.2 documentation</title>
   
 
   
@@ -63,7 +63,7 @@
             
             
               <div class="version">
-                0.1.1
+                0.1.2
               </div>
             
           
@@ -97,10 +97,38 @@
 <li class="toctree-l2"><a class="reference internal" href="#repeatedtransceivehandle">RepeatedTransceiveHandle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#readbufferresponse">ReadBufferResponse</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#bufferedvalue">BufferedValue</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-sensirion_shdlc_sensorbridge.i2c_errors">I²C Errors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-sensirion_shdlc_sensorbridge.device_errors">Device Errors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-sensirion_shdlc_sensorbridge.definitions">Definitions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-sensirion_shdlc_sensorbridge.commands.device_information">Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-sensirion_shdlc_sensorbridge.i2c_errors">I²C Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#device-errors">Device Errors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#functionality-not-implemented-error">Functionality Not Implemented Error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#no-more-periodic-measurements-possible-error">No More Periodic Measurements Possible Error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#frame-checksum-error">Frame Checksum Error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#frame-size-info-mismatch-error">Frame Size Info Mismatch Error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#i2c-nack-error">I2c Nack Error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#i2c-timeout-error">I2c Timeout Error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fatal-error">Fatal Error</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_shdlc_sensorbridge.commands.device_information">Device Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_shdlc_sensorbridge.commands.get_version">Get Version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_shdlc_sensorbridge.commands.slave_address">Slave Address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_shdlc_sensorbridge.commands.baudrate">Baudrate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_shdlc_sensorbridge.commands.set_port_voltage">Set Port Voltage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_shdlc_sensorbridge.commands.port_voltage_on_off">Port Voltage On Off</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_shdlc_sensorbridge.commands.set_i2c_frequency">Set I2c Frequency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_shdlc_sensorbridge.commands.i2c_scan">I2c Scan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_shdlc_sensorbridge.commands.i2c_transceive">I2c Transceive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_shdlc_sensorbridge.commands.i2c_repeated_transceive">I2c Repeated Transceive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_shdlc_sensorbridge.commands.read_buffer">Read Buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_shdlc_sensorbridge.commands.stop_repeated_transceive">Stop Repeated Transceive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_shdlc_sensorbridge.commands.spi_config">Spi Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_shdlc_sensorbridge.commands.spi_transceive">Spi Transceive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_shdlc_sensorbridge.commands.blink">Blink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_shdlc_sensorbridge.commands.analog_measurement">Analog Measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_shdlc_sensorbridge.commands.firmware_update">Firmware Update</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -640,7 +668,7 @@ percent) as parameter.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The used SHDLC connection.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">ShdlcConnection</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.connection.ShdlcConnection" title="(in Sensirion SHDLC Python Driver v0.1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShdlcConnection</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -654,7 +682,7 @@ percent) as parameter.</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>command</strong> (<em>ShdlcCommand</em>) – The command to execute.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>command</strong> (<a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.command.ShdlcCommand" title="(in Sensirion SHDLC Python Driver v0.1.3)"><em>ShdlcCommand</em></a>) – The command to execute.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The interpreted response of the executed command.</td>
 </tr>
@@ -666,7 +694,10 @@ percent) as parameter.</li>
 <dt id="sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.get_article_code">
 <code class="descname">get_article_code</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.get_article_code" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the article code of the device.</p>
-<p>Note: This command is not supported by every product type.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This command is not supported by every product type.</p>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -683,7 +714,10 @@ percent) as parameter.</li>
 <dt id="sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.get_product_name">
 <code class="descname">get_product_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.get_product_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the product name of the device.</p>
-<p>Note: This command is not supported by every product type.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This command is not supported by every product type.</p>
+</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -705,7 +739,7 @@ type”) can be used to detect what kind of SHDLC product is connected.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>as_int</strong> (<em>bool</em>) – If True, the product type is returned as an
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>as_int</strong> (<em>bool</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the product type is returned as an
 integer, otherwise as a string of hexadecimal
 digits (default).</td>
 </tr>
@@ -756,12 +790,14 @@ digits.</td>
 <dd><p>Get the error flag which was received with the last response of the
 device. So this flag gets updated with every command sent to the
 device. If the flag is True, the exact error reason can be read with
-the method get_error_state().</p>
+the method
+<a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.device.ShdlcDevice.get_error_state" title="(in Sensirion SHDLC Python Driver v0.1.3)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_error_state()</span></code></a>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">When creating an instance of the ShdlcDevice, this property
-is initialized with False and will not be updated until you
-send the first command to the device.</p>
+<p class="last">When creating an instance of
+<a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.device.ShdlcDevice" title="(in Sensirion SHDLC Python Driver v0.1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShdlcDevice</span></code></a>, this
+property is initialized with <code class="docutils literal notranslate"><span class="pre">False</span></code> and will not be
+updated until you send the first command to the device.</p>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -788,29 +824,27 @@ baudrate.</p>
 </div>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">If you pass <cite>True</cite> to the argument <cite>update_driver</cite>, the
-baudrate of the underlaying
+<p class="last">If you pass <code class="docutils literal notranslate"><span class="pre">True</span></code> to the argument <code class="docutils literal notranslate"><span class="pre">update_driver</span></code>,
+the baudrate of the underlaying
 <a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.port.ShdlcPort" title="(in Sensirion SHDLC Python Driver v0.1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShdlcPort</span></code></a> object
 is changed. As the baudrate applies to the whole bus (with
 all its slaves), you might no longer be able to
 communicate with other slaves. Generally you should change
 the baudrate of all slaves consecutively, and only set
-<cite>update_driver</cite> to <cite>True</cite> the last time.</p>
+<code class="docutils literal notranslate"><span class="pre">update_driver</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> the last time.</p>
 </div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>baudrate</strong> (<em>int</em>) – The new baudrate. See device documentation for a
-list of supported baudrates. Many devices support
-the baudrates 9600, 19200 and 115200.</li>
+<li><strong>baudrate</strong> (<em>int</em>) – The new baudrate. See device documentation for a list of supported
+baudrates. Many devices support the baudrates 9600, 19200 and
+115200.</li>
 <li><strong>update_driver</strong> (<em>bool</em>) – If true, the baudrate of the
-<a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.port.ShdlcPort" title="(in Sensirion SHDLC Python Driver v0.1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShdlcPort</span></code></a>
-object is also updated with the baudrate.
-This is needed to allow further
-communication with the device, as its
-baudrate has changed.</li>
+<a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.port.ShdlcPort" title="(in Sensirion SHDLC Python Driver v0.1.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShdlcPort</span></code></a> object is also
+updated with the baudrate. This is needed to allow further
+communication with the device, as its baudrate has changed.</li>
 </ul>
 </td>
 </tr>
@@ -841,13 +875,13 @@ only be fixed by disconnecting one of the slaves.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>slave_address</strong> (<em>byte</em>) – The new slave address [0..254]. The address
-255 is reserved for broadcasts.</li>
-<li><strong>update_driver</strong> (<em>bool</em>) – If true, the property
-<a class="reference internal" href="#sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.slave_address" title="sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.slave_address"><code class="xref py py-attr docutils literal notranslate"><span class="pre">slave_address</span></code></a> of this object is
-also updated with the new address. This is
-needed to allow further communication with
-the device, as its address has changed.</li>
+<li><strong>slave_address</strong> (<em>byte</em>) – The new slave address [0..254]. The address 255 is reserved for
+broadcasts.</li>
+<li><strong>update_driver</strong> (<em>bool</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the property
+<a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.device.ShdlcDevice.slave_address" title="(in Sensirion SHDLC Python Driver v0.1.3)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">slave_address</span></code></a>
+of this object is also updated with the new address. This is
+needed to allow further communication with the device, as its
+address has changed.</li>
 </ul>
 </td>
 </tr>
@@ -1198,6 +1232,144 @@ an I2C error occurred.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="module-sensirion_shdlc_sensorbridge.definitions">
+<span id="definitions"></span><h2>Definitions<a class="headerlink" href="#module-sensirion_shdlc_sensorbridge.definitions" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="sensirion_shdlc_sensorbridge.definitions.SensorBridgePort">
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.definitions.</code><code class="descname">SensorBridgePort</code><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/definitions.html#SensorBridgePort"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.definitions.SensorBridgePort" title="Permalink to this definition">¶</a></dt>
+<dd><p>An enum containing all available ports with their corresponding byte
+values how they are transmitted over SHDLC.</p>
+<dl class="attribute">
+<dt id="sensirion_shdlc_sensorbridge.definitions.SensorBridgePort.ONE">
+<code class="descname">ONE</code><em class="property"> = 0</em><a class="headerlink" href="#sensirion_shdlc_sensorbridge.definitions.SensorBridgePort.ONE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port 1</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sensorbridge.definitions.SensorBridgePort.TWO">
+<code class="descname">TWO</code><em class="property"> = 1</em><a class="headerlink" href="#sensirion_shdlc_sensorbridge.definitions.SensorBridgePort.TWO" title="Permalink to this definition">¶</a></dt>
+<dd><p>Port 2</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sensorbridge.definitions.SensorBridgePort.ALL">
+<code class="descname">ALL</code><em class="property"> = 255</em><a class="headerlink" href="#sensirion_shdlc_sensorbridge.definitions.SensorBridgePort.ALL" title="Permalink to this definition">¶</a></dt>
+<dd><p>All ports</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="data">
+<dt id="sensirion_shdlc_sensorbridge.definitions.VOLTAGES">
+<code class="descclassname">sensirion_shdlc_sensorbridge.definitions.</code><code class="descname">VOLTAGES</code><em class="property"> = {1.2: 0, 1.5: 4, 1.8: 1, 2.1: 5, 2.4: 6, 2.7: 7, 3.0: 8, 3.3: 2, 3.6: 9, 4.5: 10, 5.0: 3, 5.5: 11}</em><a class="headerlink" href="#sensirion_shdlc_sensorbridge.definitions.VOLTAGES" title="Permalink to this definition">¶</a></dt>
+<dd><p>A dictionary containing all available voltages with their corresponding
+byte values how they are transmitted over SHDLC.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sensirion_shdlc_sensorbridge.definitions.I2C_FREQUENCIES">
+<code class="descclassname">sensirion_shdlc_sensorbridge.definitions.</code><code class="descname">I2C_FREQUENCIES</code><em class="property"> = {10000.0: 4, 50000.0: 5, 100000.0: 0, 400000.0: 1, 1000000.0: 2, 2000000.0: 3}</em><a class="headerlink" href="#sensirion_shdlc_sensorbridge.definitions.I2C_FREQUENCIES" title="Permalink to this definition">¶</a></dt>
+<dd><p>A dictionary containing all available I2C frequencies with their
+corresponding byte values how they are transmitted over SHDLC.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sensirion_shdlc_sensorbridge.definitions.SPI_FREQUENCIES">
+<code class="descclassname">sensirion_shdlc_sensorbridge.definitions.</code><code class="descname">SPI_FREQUENCIES</code><em class="property"> = {330000.0: 0, 600000.0: 1, 1000000.0: 2, 5000000.0: 3, 10000000.0: 4, 21000000.0: 5}</em><a class="headerlink" href="#sensirion_shdlc_sensorbridge.definitions.SPI_FREQUENCIES" title="Permalink to this definition">¶</a></dt>
+<dd><p>A dictionary containing all available SPI frequencies with their
+corresponding byte values how they are transmitted over SHDLC.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="sensirion_shdlc_sensorbridge.definitions.port_to_byte">
+<code class="descclassname">sensirion_shdlc_sensorbridge.definitions.</code><code class="descname">port_to_byte</code><span class="sig-paren">(</span><em>port</em>, <em>accept_all</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/definitions.html#port_to_byte"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.definitions.port_to_byte" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a port value to the corresponding byte value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>port</strong> (<a class="reference internal" href="#sensirion_shdlc_sensorbridge.definitions.SensorBridgePort" title="sensirion_shdlc_sensorbridge.definitions.SensorBridgePort"><em>SensorBridgePort</em></a>) – The port to convert.</li>
+<li><strong>accept_all</strong> – If True, the value
+<a class="reference internal" href="#sensirion_shdlc_sensorbridge.definitions.SensorBridgePort.ALL" title="sensirion_shdlc_sensorbridge.definitions.SensorBridgePort.ALL"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ALL</span></code></a>
+is accepted.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><strong>ValueError</strong> – If the passed port is not valid.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The corresponding byte value of the port.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">byte</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="sensirion_shdlc_sensorbridge.definitions.voltage_to_byte">
+<code class="descclassname">sensirion_shdlc_sensorbridge.definitions.</code><code class="descname">voltage_to_byte</code><span class="sig-paren">(</span><em>voltage</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/definitions.html#voltage_to_byte"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.definitions.voltage_to_byte" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a voltage in Volts to the corresponding byte value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>port</strong> (<em>int/float</em>) – The voltage to convert.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ValueError</strong> – If the passed voltage is not supported.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The corresponding byte value of the voltage.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">byte</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="sensirion_shdlc_sensorbridge.definitions.i2c_frequency_to_byte">
+<code class="descclassname">sensirion_shdlc_sensorbridge.definitions.</code><code class="descname">i2c_frequency_to_byte</code><span class="sig-paren">(</span><em>frequency</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/definitions.html#i2c_frequency_to_byte"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.definitions.i2c_frequency_to_byte" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert an I2C frequency in Hz to the corresponding byte value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>port</strong> (<em>int/float</em>) – The frequency to convert.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ValueError</strong> – If the passed frequency is not supported.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The corresponding byte value of the frequency.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">byte</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="sensirion_shdlc_sensorbridge.definitions.spi_frequency_to_byte">
+<code class="descclassname">sensirion_shdlc_sensorbridge.definitions.</code><code class="descname">spi_frequency_to_byte</code><span class="sig-paren">(</span><em>frequency</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/definitions.html#spi_frequency_to_byte"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.definitions.spi_frequency_to_byte" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert an SPI frequency in Hz to the corresponding byte value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>port</strong> (<em>int/float</em>) – The frequency to convert.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ValueError</strong> – If the passed frequency is not supported.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The corresponding byte value of the frequency.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">byte</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
 <div class="section" id="module-sensirion_shdlc_sensorbridge.i2c_errors">
 <span id="i2c-errors"></span><h2>I²C Errors<a class="headerlink" href="#module-sensirion_shdlc_sensorbridge.i2c_errors" title="Permalink to this headline">¶</a></h2>
 <dl class="exception">
@@ -1393,11 +1565,13 @@ None is returned.</td>
 </dd></dl>
 
 </div>
-<div class="section" id="module-sensirion_shdlc_sensorbridge.device_errors">
-<span id="device-errors"></span><h2>Device Errors<a class="headerlink" href="#module-sensirion_shdlc_sensorbridge.device_errors" title="Permalink to this headline">¶</a></h2>
-<dl class="exception">
+<div class="section" id="device-errors">
+<h2>Device Errors<a class="headerlink" href="#device-errors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="functionality-not-implemented-error">
+<h3>Functionality Not Implemented Error<a class="headerlink" href="#functionality-not-implemented-error" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
 <dt id="sensirion_shdlc_sensorbridge.device_errors.SensorBridgeFunctionalityNotImplementedError">
-<em class="property">exception </em><code class="descclassname">sensirion_shdlc_sensorbridge.device_errors.</code><code class="descname">SensorBridgeFunctionalityNotImplementedError</code><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/device_errors.html#SensorBridgeFunctionalityNotImplementedError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.device_errors.SensorBridgeFunctionalityNotImplementedError" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.device_errors.</code><code class="descname">SensorBridgeFunctionalityNotImplementedError</code><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/device_errors.html#SensorBridgeFunctionalityNotImplementedError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.device_errors.SensorBridgeFunctionalityNotImplementedError" title="Permalink to this definition">¶</a></dt>
 <dd><p>SHDLC device error for functionality not implemented.</p>
 <dl class="method">
 <dt id="sensirion_shdlc_sensorbridge.device_errors.SensorBridgeFunctionalityNotImplementedError.__init__">
@@ -1458,9 +1632,12 @@ set self.__traceback__ to tb and return self.</p>
 
 </dd></dl>
 
-<dl class="exception">
+</div>
+<div class="section" id="no-more-periodic-measurements-possible-error">
+<h3>No More Periodic Measurements Possible Error<a class="headerlink" href="#no-more-periodic-measurements-possible-error" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
 <dt id="sensirion_shdlc_sensorbridge.device_errors.SensorBridgeNoMorePeriodicMeasurementsPossibleError">
-<em class="property">exception </em><code class="descclassname">sensirion_shdlc_sensorbridge.device_errors.</code><code class="descname">SensorBridgeNoMorePeriodicMeasurementsPossibleError</code><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/device_errors.html#SensorBridgeNoMorePeriodicMeasurementsPossibleError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.device_errors.SensorBridgeNoMorePeriodicMeasurementsPossibleError" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.device_errors.</code><code class="descname">SensorBridgeNoMorePeriodicMeasurementsPossibleError</code><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/device_errors.html#SensorBridgeNoMorePeriodicMeasurementsPossibleError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.device_errors.SensorBridgeNoMorePeriodicMeasurementsPossibleError" title="Permalink to this definition">¶</a></dt>
 <dd><p>SHDLC device error for no more periodic measurements possible.</p>
 <dl class="method">
 <dt id="sensirion_shdlc_sensorbridge.device_errors.SensorBridgeNoMorePeriodicMeasurementsPossibleError.__init__">
@@ -1521,9 +1698,12 @@ set self.__traceback__ to tb and return self.</p>
 
 </dd></dl>
 
-<dl class="exception">
+</div>
+<div class="section" id="frame-checksum-error">
+<h3>Frame Checksum Error<a class="headerlink" href="#frame-checksum-error" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
 <dt id="sensirion_shdlc_sensorbridge.device_errors.SensorBridgeFrameChecksumError">
-<em class="property">exception </em><code class="descclassname">sensirion_shdlc_sensorbridge.device_errors.</code><code class="descname">SensorBridgeFrameChecksumError</code><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/device_errors.html#SensorBridgeFrameChecksumError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.device_errors.SensorBridgeFrameChecksumError" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.device_errors.</code><code class="descname">SensorBridgeFrameChecksumError</code><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/device_errors.html#SensorBridgeFrameChecksumError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.device_errors.SensorBridgeFrameChecksumError" title="Permalink to this definition">¶</a></dt>
 <dd><p>SHDLC device error for frame checksum error.</p>
 <dl class="method">
 <dt id="sensirion_shdlc_sensorbridge.device_errors.SensorBridgeFrameChecksumError.__init__">
@@ -1584,9 +1764,12 @@ set self.__traceback__ to tb and return self.</p>
 
 </dd></dl>
 
-<dl class="exception">
+</div>
+<div class="section" id="frame-size-info-mismatch-error">
+<h3>Frame Size Info Mismatch Error<a class="headerlink" href="#frame-size-info-mismatch-error" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
 <dt id="sensirion_shdlc_sensorbridge.device_errors.SensorBridgeFrameSizeInfoMismatchError">
-<em class="property">exception </em><code class="descclassname">sensirion_shdlc_sensorbridge.device_errors.</code><code class="descname">SensorBridgeFrameSizeInfoMismatchError</code><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/device_errors.html#SensorBridgeFrameSizeInfoMismatchError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.device_errors.SensorBridgeFrameSizeInfoMismatchError" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.device_errors.</code><code class="descname">SensorBridgeFrameSizeInfoMismatchError</code><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/device_errors.html#SensorBridgeFrameSizeInfoMismatchError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.device_errors.SensorBridgeFrameSizeInfoMismatchError" title="Permalink to this definition">¶</a></dt>
 <dd><p>SHDLC device error for frame size info mismatch.</p>
 <dl class="method">
 <dt id="sensirion_shdlc_sensorbridge.device_errors.SensorBridgeFrameSizeInfoMismatchError.__init__">
@@ -1647,9 +1830,12 @@ set self.__traceback__ to tb and return self.</p>
 
 </dd></dl>
 
-<dl class="exception">
+</div>
+<div class="section" id="i2c-nack-error">
+<h3>I2c Nack Error<a class="headerlink" href="#i2c-nack-error" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
 <dt id="sensirion_shdlc_sensorbridge.device_errors.SensorBridgeI2cNackError">
-<em class="property">exception </em><code class="descclassname">sensirion_shdlc_sensorbridge.device_errors.</code><code class="descname">SensorBridgeI2cNackError</code><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/device_errors.html#SensorBridgeI2cNackError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.device_errors.SensorBridgeI2cNackError" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.device_errors.</code><code class="descname">SensorBridgeI2cNackError</code><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/device_errors.html#SensorBridgeI2cNackError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.device_errors.SensorBridgeI2cNackError" title="Permalink to this definition">¶</a></dt>
 <dd><p>SHDLC device error for I2C NACK.</p>
 <dl class="method">
 <dt id="sensirion_shdlc_sensorbridge.device_errors.SensorBridgeI2cNackError.__init__">
@@ -1710,9 +1896,12 @@ set self.__traceback__ to tb and return self.</p>
 
 </dd></dl>
 
-<dl class="exception">
+</div>
+<div class="section" id="i2c-timeout-error">
+<h3>I2c Timeout Error<a class="headerlink" href="#i2c-timeout-error" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
 <dt id="sensirion_shdlc_sensorbridge.device_errors.SensorBridgeI2cTimeoutError">
-<em class="property">exception </em><code class="descclassname">sensirion_shdlc_sensorbridge.device_errors.</code><code class="descname">SensorBridgeI2cTimeoutError</code><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/device_errors.html#SensorBridgeI2cTimeoutError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.device_errors.SensorBridgeI2cTimeoutError" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.device_errors.</code><code class="descname">SensorBridgeI2cTimeoutError</code><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/device_errors.html#SensorBridgeI2cTimeoutError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.device_errors.SensorBridgeI2cTimeoutError" title="Permalink to this definition">¶</a></dt>
 <dd><p>SHDLC device error for I2C timeout.</p>
 <dl class="method">
 <dt id="sensirion_shdlc_sensorbridge.device_errors.SensorBridgeI2cTimeoutError.__init__">
@@ -1773,9 +1962,12 @@ set self.__traceback__ to tb and return self.</p>
 
 </dd></dl>
 
-<dl class="exception">
+</div>
+<div class="section" id="fatal-error">
+<h3>Fatal Error<a class="headerlink" href="#fatal-error" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
 <dt id="sensirion_shdlc_sensorbridge.device_errors.SensorBridgeFatalError">
-<em class="property">exception </em><code class="descclassname">sensirion_shdlc_sensorbridge.device_errors.</code><code class="descname">SensorBridgeFatalError</code><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/device_errors.html#SensorBridgeFatalError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.device_errors.SensorBridgeFatalError" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.device_errors.</code><code class="descname">SensorBridgeFatalError</code><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/device_errors.html#SensorBridgeFatalError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.device_errors.SensorBridgeFatalError" title="Permalink to this definition">¶</a></dt>
 <dd><p>SHDLC device error for fatal errors.</p>
 <dl class="method">
 <dt id="sensirion_shdlc_sensorbridge.device_errors.SensorBridgeFatalError.__init__">
@@ -1837,146 +2029,11 @@ set self.__traceback__ to tb and return self.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-sensirion_shdlc_sensorbridge.definitions">
-<span id="definitions"></span><h2>Definitions<a class="headerlink" href="#module-sensirion_shdlc_sensorbridge.definitions" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="sensirion_shdlc_sensorbridge.definitions.SensorBridgePort">
-<em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.definitions.</code><code class="descname">SensorBridgePort</code><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/definitions.html#SensorBridgePort"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.definitions.SensorBridgePort" title="Permalink to this definition">¶</a></dt>
-<dd><p>An enum containing all available ports with their corresponding byte
-values how they are transmitted over SHDLC.</p>
-<dl class="attribute">
-<dt id="sensirion_shdlc_sensorbridge.definitions.SensorBridgePort.ONE">
-<code class="descname">ONE</code><em class="property"> = 0</em><a class="headerlink" href="#sensirion_shdlc_sensorbridge.definitions.SensorBridgePort.ONE" title="Permalink to this definition">¶</a></dt>
-<dd><p>Port 1</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="sensirion_shdlc_sensorbridge.definitions.SensorBridgePort.TWO">
-<code class="descname">TWO</code><em class="property"> = 1</em><a class="headerlink" href="#sensirion_shdlc_sensorbridge.definitions.SensorBridgePort.TWO" title="Permalink to this definition">¶</a></dt>
-<dd><p>Port 2</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="sensirion_shdlc_sensorbridge.definitions.SensorBridgePort.ALL">
-<code class="descname">ALL</code><em class="property"> = 255</em><a class="headerlink" href="#sensirion_shdlc_sensorbridge.definitions.SensorBridgePort.ALL" title="Permalink to this definition">¶</a></dt>
-<dd><p>All ports</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="data">
-<dt id="sensirion_shdlc_sensorbridge.definitions.VOLTAGES">
-<code class="descclassname">sensirion_shdlc_sensorbridge.definitions.</code><code class="descname">VOLTAGES</code><em class="property"> = {1.2: 0, 1.5: 4, 1.8: 1, 2.1: 5, 2.4: 6, 2.7: 7, 3.0: 8, 3.3: 2, 3.6: 9, 4.5: 10, 5.0: 3, 5.5: 11}</em><a class="headerlink" href="#sensirion_shdlc_sensorbridge.definitions.VOLTAGES" title="Permalink to this definition">¶</a></dt>
-<dd><p>A dictionary containing all available voltages with their corresponding
-byte values how they are transmitted over SHDLC.</p>
-</dd></dl>
-
-<dl class="data">
-<dt id="sensirion_shdlc_sensorbridge.definitions.I2C_FREQUENCIES">
-<code class="descclassname">sensirion_shdlc_sensorbridge.definitions.</code><code class="descname">I2C_FREQUENCIES</code><em class="property"> = {10000.0: 4, 50000.0: 5, 100000.0: 0, 400000.0: 1, 1000000.0: 2, 2000000.0: 3}</em><a class="headerlink" href="#sensirion_shdlc_sensorbridge.definitions.I2C_FREQUENCIES" title="Permalink to this definition">¶</a></dt>
-<dd><p>A dictionary containing all available I2C frequencies with their
-corresponding byte values how they are transmitted over SHDLC.</p>
-</dd></dl>
-
-<dl class="data">
-<dt id="sensirion_shdlc_sensorbridge.definitions.SPI_FREQUENCIES">
-<code class="descclassname">sensirion_shdlc_sensorbridge.definitions.</code><code class="descname">SPI_FREQUENCIES</code><em class="property"> = {330000.0: 0, 600000.0: 1, 1000000.0: 2, 5000000.0: 3, 10000000.0: 4, 21000000.0: 5}</em><a class="headerlink" href="#sensirion_shdlc_sensorbridge.definitions.SPI_FREQUENCIES" title="Permalink to this definition">¶</a></dt>
-<dd><p>A dictionary containing all available SPI frequencies with their
-corresponding byte values how they are transmitted over SHDLC.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="sensirion_shdlc_sensorbridge.definitions.port_to_byte">
-<code class="descclassname">sensirion_shdlc_sensorbridge.definitions.</code><code class="descname">port_to_byte</code><span class="sig-paren">(</span><em>port</em>, <em>accept_all</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/definitions.html#port_to_byte"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.definitions.port_to_byte" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert a port value to the corresponding byte value.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>port</strong> (<a class="reference internal" href="#sensirion_shdlc_sensorbridge.definitions.SensorBridgePort" title="sensirion_shdlc_sensorbridge.definitions.SensorBridgePort"><em>SensorBridgePort</em></a>) – The port to convert.</li>
-<li><strong>accept_all</strong> – If True, the value
-<a class="reference internal" href="#sensirion_shdlc_sensorbridge.definitions.SensorBridgePort.ALL" title="sensirion_shdlc_sensorbridge.definitions.SensorBridgePort.ALL"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ALL</span></code></a>
-is accepted.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><strong>ValueError</strong> – If the passed port is not valid.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The corresponding byte value of the port.</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">byte</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="sensirion_shdlc_sensorbridge.definitions.voltage_to_byte">
-<code class="descclassname">sensirion_shdlc_sensorbridge.definitions.</code><code class="descname">voltage_to_byte</code><span class="sig-paren">(</span><em>voltage</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/definitions.html#voltage_to_byte"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.definitions.voltage_to_byte" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert a voltage in Volts to the corresponding byte value.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>port</strong> (<em>int/float</em>) – The voltage to convert.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ValueError</strong> – If the passed voltage is not supported.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The corresponding byte value of the voltage.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">byte</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="sensirion_shdlc_sensorbridge.definitions.i2c_frequency_to_byte">
-<code class="descclassname">sensirion_shdlc_sensorbridge.definitions.</code><code class="descname">i2c_frequency_to_byte</code><span class="sig-paren">(</span><em>frequency</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/definitions.html#i2c_frequency_to_byte"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.definitions.i2c_frequency_to_byte" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert an I2C frequency in Hz to the corresponding byte value.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>port</strong> (<em>int/float</em>) – The frequency to convert.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ValueError</strong> – If the passed frequency is not supported.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The corresponding byte value of the frequency.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">byte</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="sensirion_shdlc_sensorbridge.definitions.spi_frequency_to_byte">
-<code class="descclassname">sensirion_shdlc_sensorbridge.definitions.</code><code class="descname">spi_frequency_to_byte</code><span class="sig-paren">(</span><em>frequency</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/definitions.html#spi_frequency_to_byte"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.definitions.spi_frequency_to_byte" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert an SPI frequency in Hz to the corresponding byte value.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>port</strong> (<em>int/float</em>) – The frequency to convert.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ValueError</strong> – If the passed frequency is not supported.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The corresponding byte value of the frequency.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">byte</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 </div>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="module-sensirion_shdlc_sensorbridge.commands.device_information">
-<span id="commands"></span><h2>Commands<a class="headerlink" href="#module-sensirion_shdlc_sensorbridge.commands.device_information" title="Permalink to this headline">¶</a></h2>
+<span id="device-information"></span><h3>Device Information<a class="headerlink" href="#module-sensirion_shdlc_sensorbridge.commands.device_information" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="sensirion_shdlc_sensorbridge.commands.device_information.SensorBridgeCmdDeviceInformationBase">
 <em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.commands.device_information.</code><code class="descname">SensorBridgeCmdDeviceInformationBase</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/commands/device_information.html#SensorBridgeCmdDeviceInformationBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.commands.device_information.SensorBridgeCmdDeviceInformationBase" title="Permalink to this definition">¶</a></dt>
@@ -2016,7 +2073,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -2131,7 +2188,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">String containing the product type.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
 </tr>
 </tbody>
 </table>
@@ -2147,7 +2204,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -2242,7 +2299,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">String containing the product name.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
 </tr>
 </tbody>
 </table>
@@ -2258,7 +2315,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -2353,7 +2410,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">String containing the article code.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
 </tr>
 </tbody>
 </table>
@@ -2369,7 +2426,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -2464,7 +2521,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">String containing the serial number.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
 </tr>
 </tbody>
 </table>
@@ -2480,7 +2537,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -2556,7 +2613,10 @@ a device reset) are executed after the response is sent.</p>
 
 </dd></dl>
 
-<span class="target" id="module-sensirion_shdlc_sensorbridge.commands.get_version"></span><dl class="class">
+</div>
+<div class="section" id="module-sensirion_shdlc_sensorbridge.commands.get_version">
+<span id="get-version"></span><h3>Get Version<a class="headerlink" href="#module-sensirion_shdlc_sensorbridge.commands.get_version" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
 <dt id="sensirion_shdlc_sensorbridge.commands.get_version.SensorBridgeCmdGetVersionBase">
 <em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.commands.get_version.</code><code class="descname">SensorBridgeCmdGetVersionBase</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/commands/get_version.html#SensorBridgeCmdGetVersionBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.commands.get_version.SensorBridgeCmdGetVersionBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>SHDLC command 0xD1: “Get Version”.</p>
@@ -2595,7 +2655,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -2744,7 +2804,7 @@ Protocol minor version number.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -2820,7 +2880,10 @@ a device reset) are executed after the response is sent.</p>
 
 </dd></dl>
 
-<span class="target" id="module-sensirion_shdlc_sensorbridge.commands.slave_address"></span><dl class="class">
+</div>
+<div class="section" id="module-sensirion_shdlc_sensorbridge.commands.slave_address">
+<span id="slave-address"></span><h3>Slave Address<a class="headerlink" href="#module-sensirion_shdlc_sensorbridge.commands.slave_address" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
 <dt id="sensirion_shdlc_sensorbridge.commands.slave_address.SensorBridgeCmdSlaveAddressBase">
 <em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.commands.slave_address.</code><code class="descname">SensorBridgeCmdSlaveAddressBase</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/commands/slave_address.html#SensorBridgeCmdSlaveAddressBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.commands.slave_address.SensorBridgeCmdSlaveAddressBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>SHDLC command 0x90: “Slave Address”.</p>
@@ -2859,7 +2922,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -3008,7 +3071,7 @@ can only be fixed by disconnecting one of the slaves.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -3084,7 +3147,10 @@ a device reset) are executed after the response is sent.</p>
 
 </dd></dl>
 
-<span class="target" id="module-sensirion_shdlc_sensorbridge.commands.baudrate"></span><dl class="class">
+</div>
+<div class="section" id="module-sensirion_shdlc_sensorbridge.commands.baudrate">
+<span id="baudrate"></span><h3>Baudrate<a class="headerlink" href="#module-sensirion_shdlc_sensorbridge.commands.baudrate" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
 <dt id="sensirion_shdlc_sensorbridge.commands.baudrate.SensorBridgeCmdBaudrateBase">
 <em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.commands.baudrate.</code><code class="descname">SensorBridgeCmdBaudrateBase</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/commands/baudrate.html#SensorBridgeCmdBaudrateBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.commands.baudrate.SensorBridgeCmdBaudrateBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>SHDLC command 0x91: “Baudrate”.</p>
@@ -3123,7 +3189,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -3269,7 +3335,7 @@ Default is 460800 bit/s.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -3345,7 +3411,10 @@ a device reset) are executed after the response is sent.</p>
 
 </dd></dl>
 
-<span class="target" id="module-sensirion_shdlc_sensorbridge.commands.set_port_voltage"></span><dl class="class">
+</div>
+<div class="section" id="module-sensirion_shdlc_sensorbridge.commands.set_port_voltage">
+<span id="set-port-voltage"></span><h3>Set Port Voltage<a class="headerlink" href="#module-sensirion_shdlc_sensorbridge.commands.set_port_voltage" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
 <dt id="sensirion_shdlc_sensorbridge.commands.set_port_voltage.SensorBridgeCmdSetPortVoltageBase">
 <em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.commands.set_port_voltage.</code><code class="descname">SensorBridgeCmdSetPortVoltageBase</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/commands/set_port_voltage.html#SensorBridgeCmdSetPortVoltageBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.commands.set_port_voltage.SensorBridgeCmdSetPortVoltageBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>SHDLC command 0x00: “Set Port Voltage”.</p>
@@ -3384,7 +3453,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -3533,7 +3602,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -3629,7 +3698,10 @@ a device reset) are executed after the response is sent.</p>
 
 </dd></dl>
 
-<span class="target" id="module-sensirion_shdlc_sensorbridge.commands.port_voltage_on_off"></span><dl class="class">
+</div>
+<div class="section" id="module-sensirion_shdlc_sensorbridge.commands.port_voltage_on_off">
+<span id="port-voltage-on-off"></span><h3>Port Voltage On Off<a class="headerlink" href="#module-sensirion_shdlc_sensorbridge.commands.port_voltage_on_off" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
 <dt id="sensirion_shdlc_sensorbridge.commands.port_voltage_on_off.SensorBridgeCmdPortVoltageOnOffBase">
 <em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.commands.port_voltage_on_off.</code><code class="descname">SensorBridgeCmdPortVoltageOnOffBase</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/commands/port_voltage_on_off.html#SensorBridgeCmdPortVoltageOnOffBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.commands.port_voltage_on_off.SensorBridgeCmdPortVoltageOnOffBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>SHDLC command 0x01: “Port Voltage On Off”.</p>
@@ -3668,7 +3740,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -3808,7 +3880,7 @@ voltage will be applied.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -3904,7 +3976,10 @@ a device reset) are executed after the response is sent.</p>
 
 </dd></dl>
 
-<span class="target" id="module-sensirion_shdlc_sensorbridge.commands.set_i2c_frequency"></span><dl class="class">
+</div>
+<div class="section" id="module-sensirion_shdlc_sensorbridge.commands.set_i2c_frequency">
+<span id="set-i2c-frequency"></span><h3>Set I2c Frequency<a class="headerlink" href="#module-sensirion_shdlc_sensorbridge.commands.set_i2c_frequency" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
 <dt id="sensirion_shdlc_sensorbridge.commands.set_i2c_frequency.SensorBridgeCmdSetI2cFrequencyBase">
 <em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.commands.set_i2c_frequency.</code><code class="descname">SensorBridgeCmdSetI2cFrequencyBase</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/commands/set_i2c_frequency.html#SensorBridgeCmdSetI2cFrequencyBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.commands.set_i2c_frequency.SensorBridgeCmdSetI2cFrequencyBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>SHDLC command 0x02: “Set I2c Frequency”.</p>
@@ -3943,7 +4018,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -4087,7 +4162,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -4183,7 +4258,10 @@ a device reset) are executed after the response is sent.</p>
 
 </dd></dl>
 
-<span class="target" id="module-sensirion_shdlc_sensorbridge.commands.i2c_scan"></span><dl class="class">
+</div>
+<div class="section" id="module-sensirion_shdlc_sensorbridge.commands.i2c_scan">
+<span id="i2c-scan"></span><h3>I2c Scan<a class="headerlink" href="#module-sensirion_shdlc_sensorbridge.commands.i2c_scan" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
 <dt id="sensirion_shdlc_sensorbridge.commands.i2c_scan.SensorBridgeCmdI2cScanBase">
 <em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.commands.i2c_scan.</code><code class="descname">SensorBridgeCmdI2cScanBase</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/commands/i2c_scan.html#SensorBridgeCmdI2cScanBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.commands.i2c_scan.SensorBridgeCmdI2cScanBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>SHDLC command 0x10: “I2c Scan”.</p>
@@ -4222,7 +4300,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -4357,7 +4435,7 @@ range.</p>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Array of bytes containing all addresses from devices which
 responded to the scan.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytearray</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytes</td>
 </tr>
 </tbody>
 </table>
@@ -4373,7 +4451,7 @@ responded to the scan.</td>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -4449,7 +4527,10 @@ a device reset) are executed after the response is sent.</p>
 
 </dd></dl>
 
-<span class="target" id="module-sensirion_shdlc_sensorbridge.commands.i2c_transceive"></span><dl class="class">
+</div>
+<div class="section" id="module-sensirion_shdlc_sensorbridge.commands.i2c_transceive">
+<span id="i2c-transceive"></span><h3>I2c Transceive<a class="headerlink" href="#module-sensirion_shdlc_sensorbridge.commands.i2c_transceive" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
 <dt id="sensirion_shdlc_sensorbridge.commands.i2c_transceive.SensorBridgeCmdI2cTransceiveBase">
 <em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.commands.i2c_transceive.</code><code class="descname">SensorBridgeCmdI2cTransceiveBase</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/commands/i2c_transceive.html#SensorBridgeCmdI2cTransceiveBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.commands.i2c_transceive.SensorBridgeCmdI2cTransceiveBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>SHDLC command 0x11: “I2c Transceive”.</p>
@@ -4488,7 +4569,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -4611,7 +4692,7 @@ response. Set to zero if no read operation is needed.</li>
 <li><strong>timeout_us</strong> (<em>int</em>) – I2C timeout in microseconds when reading bytes. If a frame is
 NACK’d it will be retried up to the timeout value. Same applies for
 clock stretching.</li>
-<li><strong>tx_data</strong> (<em>bytearray</em>) – Bytes to send (if any).</li>
+<li><strong>tx_data</strong> (<em>bytes</em>) – Bytes to send (if any).</li>
 </ul>
 </td>
 </tr>
@@ -4628,7 +4709,7 @@ clock stretching.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">If needed/available, the bytes from the I2C read are returned.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytearray</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytes</td>
 </tr>
 </tbody>
 </table>
@@ -4644,7 +4725,7 @@ clock stretching.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -4739,7 +4820,7 @@ a device reset) are executed after the response is sent.</p>
 <li>0x01: Port 2</li>
 </ul>
 </li>
-<li><strong>tx_data</strong> (<em>bytearray</em>) – Bytes to send (if any).</li>
+<li><strong>tx_data</strong> (<em>bytes</em>) – Bytes to send (if any).</li>
 </ul>
 </td>
 </tr>
@@ -4756,7 +4837,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">If needed/available, the bytes from the I2C read are returned.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytearray</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytes</td>
 </tr>
 </tbody>
 </table>
@@ -4772,7 +4853,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -4848,7 +4929,10 @@ a device reset) are executed after the response is sent.</p>
 
 </dd></dl>
 
-<span class="target" id="module-sensirion_shdlc_sensorbridge.commands.i2c_repeated_transceive"></span><dl class="class">
+</div>
+<div class="section" id="module-sensirion_shdlc_sensorbridge.commands.i2c_repeated_transceive">
+<span id="i2c-repeated-transceive"></span><h3>I2c Repeated Transceive<a class="headerlink" href="#module-sensirion_shdlc_sensorbridge.commands.i2c_repeated_transceive" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
 <dt id="sensirion_shdlc_sensorbridge.commands.i2c_repeated_transceive.SensorBridgeCmdI2cRepeatedTransceiveBase">
 <em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.commands.i2c_repeated_transceive.</code><code class="descname">SensorBridgeCmdI2cRepeatedTransceiveBase</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/commands/i2c_repeated_transceive.html#SensorBridgeCmdI2cRepeatedTransceiveBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.commands.i2c_repeated_transceive.SensorBridgeCmdI2cRepeatedTransceiveBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>SHDLC command 0x12: “I2c Repeated Transceive”.</p>
@@ -4887,7 +4971,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -5019,7 +5103,7 @@ stretching.</li>
 <li><strong>read_delay_us</strong> (<em>int</em>) – This time will be inserted between the write and the read frame. to
 allow a device taking a certain amount of time for its
 measurements. The delay must be smaller than the specified timeout.</li>
-<li><strong>tx_data</strong> (<em>bytearray</em>) – Bytes to send (if any).</li>
+<li><strong>tx_data</strong> (<em>bytes</em>) – Bytes to send (if any).</li>
 </ul>
 </td>
 </tr>
@@ -5042,7 +5126,7 @@ measurements. The delay must be smaller than the specified timeout.</li>
 tasks and they are identified by the unique number.</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytearray</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytes</td>
 </tr>
 </tbody>
 </table>
@@ -5058,7 +5142,7 @@ tasks and they are identified by the unique number.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -5134,7 +5218,10 @@ a device reset) are executed after the response is sent.</p>
 
 </dd></dl>
 
-<span class="target" id="module-sensirion_shdlc_sensorbridge.commands.read_buffer"></span><dl class="class">
+</div>
+<div class="section" id="module-sensirion_shdlc_sensorbridge.commands.read_buffer">
+<span id="read-buffer"></span><h3>Read Buffer<a class="headerlink" href="#module-sensirion_shdlc_sensorbridge.commands.read_buffer" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
 <dt id="sensirion_shdlc_sensorbridge.commands.read_buffer.SensorBridgeCmdReadBufferBase">
 <em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.commands.read_buffer.</code><code class="descname">SensorBridgeCmdReadBufferBase</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/commands/read_buffer.html#SensorBridgeCmdReadBufferBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.commands.read_buffer.SensorBridgeCmdReadBufferBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>SHDLC command 0x50: “Read Buffer”.</p>
@@ -5173,7 +5260,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -5300,7 +5387,7 @@ returned.</td>
 Number of bytes lost due to buffer overrun.</li>
 <li>remaining_bytes (int) -
 Number of bytes remaining in the buffer.</li>
-<li>rx_data (bytearray) -
+<li>rx_data (bytes) -
 Buffered values. The data is returned in
 <code class="docutils literal notranslate"><span class="pre">n*[header][readI2cDataOfOneTransceive]</span></code> where header:<ul>
 <li>0: valid data</li>
@@ -5329,7 +5416,7 @@ requested data rate</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -5405,7 +5492,10 @@ a device reset) are executed after the response is sent.</p>
 
 </dd></dl>
 
-<span class="target" id="module-sensirion_shdlc_sensorbridge.commands.stop_repeated_transceive"></span><dl class="class">
+</div>
+<div class="section" id="module-sensirion_shdlc_sensorbridge.commands.stop_repeated_transceive">
+<span id="stop-repeated-transceive"></span><h3>Stop Repeated Transceive<a class="headerlink" href="#module-sensirion_shdlc_sensorbridge.commands.stop_repeated_transceive" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
 <dt id="sensirion_shdlc_sensorbridge.commands.stop_repeated_transceive.SensorBridgeCmdStopRepeatedTransceiveBase">
 <em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.commands.stop_repeated_transceive.</code><code class="descname">SensorBridgeCmdStopRepeatedTransceiveBase</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/commands/stop_repeated_transceive.html#SensorBridgeCmdStopRepeatedTransceiveBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.commands.stop_repeated_transceive.SensorBridgeCmdStopRepeatedTransceiveBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>SHDLC command 0x51: “Stop Repeated Transceive”.</p>
@@ -5444,7 +5534,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -5569,7 +5659,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -5665,7 +5755,10 @@ a device reset) are executed after the response is sent.</p>
 
 </dd></dl>
 
-<span class="target" id="module-sensirion_shdlc_sensorbridge.commands.spi_config"></span><dl class="class">
+</div>
+<div class="section" id="module-sensirion_shdlc_sensorbridge.commands.spi_config">
+<span id="spi-config"></span><h3>Spi Config<a class="headerlink" href="#module-sensirion_shdlc_sensorbridge.commands.spi_config" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
 <dt id="sensirion_shdlc_sensorbridge.commands.spi_config.SensorBridgeCmdSpiConfigBase">
 <em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.commands.spi_config.</code><code class="descname">SensorBridgeCmdSpiConfigBase</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/commands/spi_config.html#SensorBridgeCmdSpiConfigBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.commands.spi_config.SensorBridgeCmdSpiConfigBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>SHDLC command 0x60: “Spi Config”.</p>
@@ -5704,7 +5797,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -5855,7 +5948,7 @@ a device reset) are executed after the response is sent.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -5951,7 +6044,10 @@ a device reset) are executed after the response is sent.</p>
 
 </dd></dl>
 
-<span class="target" id="module-sensirion_shdlc_sensorbridge.commands.spi_transceive"></span><dl class="class">
+</div>
+<div class="section" id="module-sensirion_shdlc_sensorbridge.commands.spi_transceive">
+<span id="spi-transceive"></span><h3>Spi Transceive<a class="headerlink" href="#module-sensirion_shdlc_sensorbridge.commands.spi_transceive" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
 <dt id="sensirion_shdlc_sensorbridge.commands.spi_transceive.SensorBridgeCmdSpiTransceiveBase">
 <em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.commands.spi_transceive.</code><code class="descname">SensorBridgeCmdSpiTransceiveBase</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/commands/spi_transceive.html#SensorBridgeCmdSpiTransceiveBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.commands.spi_transceive.SensorBridgeCmdSpiTransceiveBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>SHDLC command 0x61: “Spi Transceive”.</p>
@@ -5990,7 +6086,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -6107,7 +6203,7 @@ a device reset) are executed after the response is sent.</p>
 </li>
 <li><strong>length</strong> (<em>int</em>) – Count of bytes to send. This amount of bytes has to be attached to
 the command.</li>
-<li><strong>tx_data</strong> (<em>bytearray</em>) – Bytes to send.</li>
+<li><strong>tx_data</strong> (<em>bytes</em>) – Bytes to send.</li>
 </ul>
 </td>
 </tr>
@@ -6124,7 +6220,7 @@ the command.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Received bytes.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytearray</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytes</td>
 </tr>
 </tbody>
 </table>
@@ -6140,7 +6236,7 @@ the command.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -6216,7 +6312,10 @@ a device reset) are executed after the response is sent.</p>
 
 </dd></dl>
 
-<span class="target" id="module-sensirion_shdlc_sensorbridge.commands.blink"></span><dl class="class">
+</div>
+<div class="section" id="module-sensirion_shdlc_sensorbridge.commands.blink">
+<span id="blink"></span><h3>Blink<a class="headerlink" href="#module-sensirion_shdlc_sensorbridge.commands.blink" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
 <dt id="sensirion_shdlc_sensorbridge.commands.blink.SensorBridgeCmdBlinkBase">
 <em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.commands.blink.</code><code class="descname">SensorBridgeCmdBlinkBase</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/commands/blink.html#SensorBridgeCmdBlinkBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.commands.blink.SensorBridgeCmdBlinkBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>SHDLC command 0x70: “Blink”.</p>
@@ -6255,7 +6354,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -6386,7 +6485,7 @@ device on a bus.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -6482,7 +6581,10 @@ a device reset) are executed after the response is sent.</p>
 
 </dd></dl>
 
-<span class="target" id="module-sensirion_shdlc_sensorbridge.commands.analog_measurement"></span><dl class="class">
+</div>
+<div class="section" id="module-sensirion_shdlc_sensorbridge.commands.analog_measurement">
+<span id="analog-measurement"></span><h3>Analog Measurement<a class="headerlink" href="#module-sensirion_shdlc_sensorbridge.commands.analog_measurement" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
 <dt id="sensirion_shdlc_sensorbridge.commands.analog_measurement.SensorBridgeCmdAnalogMeasurementBase">
 <em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.commands.analog_measurement.</code><code class="descname">SensorBridgeCmdAnalogMeasurementBase</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/commands/analog_measurement.html#SensorBridgeCmdAnalogMeasurementBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.commands.analog_measurement.SensorBridgeCmdAnalogMeasurementBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>SHDLC command 0x80: “Analog Measurement”.</p>
@@ -6521,7 +6623,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -6666,7 +6768,7 @@ measured voltage is always positive and in the range of 0-5.5V.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -6742,7 +6844,10 @@ a device reset) are executed after the response is sent.</p>
 
 </dd></dl>
 
-<span class="target" id="module-sensirion_shdlc_sensorbridge.commands.firmware_update"></span><dl class="class">
+</div>
+<div class="section" id="module-sensirion_shdlc_sensorbridge.commands.firmware_update">
+<span id="firmware-update"></span><h3>Firmware Update<a class="headerlink" href="#module-sensirion_shdlc_sensorbridge.commands.firmware_update" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
 <dt id="sensirion_shdlc_sensorbridge.commands.firmware_update.SensorBridgeCmdFirmwareUpdateBase">
 <em class="property">class </em><code class="descclassname">sensirion_shdlc_sensorbridge.commands.firmware_update.</code><code class="descname">SensorBridgeCmdFirmwareUpdateBase</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sensorbridge/commands/firmware_update.html#SensorBridgeCmdFirmwareUpdateBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sensorbridge.commands.firmware_update.SensorBridgeCmdFirmwareUpdateBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>SHDLC command 0xF3: “Firmware Update”.</p>
@@ -6781,7 +6886,7 @@ needs for post processing
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -6905,7 +7010,7 @@ accept new commands until fully booted (wait at least 1 s).</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -7027,7 +7132,7 @@ then ready to receive the new firmware with the update data command.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -7141,7 +7246,7 @@ the last frame.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytearray</em>) – Firmware hex data in binary format.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Firmware hex data in binary format.</td>
 </tr>
 </tbody>
 </table>
@@ -7157,7 +7262,7 @@ the last frame.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -7292,7 +7397,7 @@ checksum.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>ShdlcResponseError</strong> – If length is wrong.</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.3)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
 </tr>
 </tbody>
 </table>
@@ -7388,6 +7493,7 @@ a device reset) are executed after the response is sent.</p>
 
 </dd></dl>
 
+</div>
 </div>
 </div>
 
