@@ -14,4 +14,4 @@ The user manual is available at
 https://sensirion.github.io/python-shdlc-sensorbridge/.
 
 
-.. _Sensirion SEK-SensorBridge: https://www.sensirion.com/sek-sensorbridge/
+.. _Sensirion SEK-SensorBridge: https://www.sensirion.com/sensorbridge/

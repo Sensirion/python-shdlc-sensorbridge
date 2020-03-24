@@ -19,4 +19,4 @@ Contents
    api
 
 
-.. _Sensirion SEK-SensorBridge: https://www.sensirion.com/sek-sensorbridge/
+.. _Sensirion SEK-SensorBridge: https://www.sensirion.com/sensorbridge/
