@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# (c) Copyright 2019 Sensirion AG, Switzerland
+# (c) Copyright 2020 Sensirion AG, Switzerland
 
 from __future__ import absolute_import, division, print_function
 from sensirion_shdlc_sensorbridge.i2c_errors import i2c_error_from_code, \

@@ -1,0 +1,18 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+trim_trailing_whitespace = true
+
+[*.bat]
+end_of_line = crlf
+
+[*.hex]
+charset = none
+end_of_line = none
+insert_final_newline = none
+indent_style = none
+trim_trailing_whitespace = none

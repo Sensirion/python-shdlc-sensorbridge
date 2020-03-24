@@ -32,6 +32,12 @@ BufferedValue
 .. autoclass:: sensirion_shdlc_sensorbridge.types.BufferedValue
 
 
+Definitions
+-----------
+
+.. automodule:: sensirion_shdlc_sensorbridge.definitions
+
+
 I²C Errors
 ----------
 
@@ -41,48 +47,10 @@ I²C Errors
 Device Errors
 -------------
 
-.. automodule:: sensirion_shdlc_sensorbridge.device_errors
-
-
-Definitions
------------
-
-.. automodule:: sensirion_shdlc_sensorbridge.definitions
+.. include:: generated/api_device_errors.rst
 
 
 Commands
 --------
 
-.. automodule:: sensirion_shdlc_sensorbridge.commands.device_information
-
-.. automodule:: sensirion_shdlc_sensorbridge.commands.get_version
-
-.. automodule:: sensirion_shdlc_sensorbridge.commands.slave_address
-
-.. automodule:: sensirion_shdlc_sensorbridge.commands.baudrate
-
-.. automodule:: sensirion_shdlc_sensorbridge.commands.set_port_voltage
-
-.. automodule:: sensirion_shdlc_sensorbridge.commands.port_voltage_on_off
-
-.. automodule:: sensirion_shdlc_sensorbridge.commands.set_i2c_frequency
-
-.. automodule:: sensirion_shdlc_sensorbridge.commands.i2c_scan
-
-.. automodule:: sensirion_shdlc_sensorbridge.commands.i2c_transceive
-
-.. automodule:: sensirion_shdlc_sensorbridge.commands.i2c_repeated_transceive
-
-.. automodule:: sensirion_shdlc_sensorbridge.commands.read_buffer
-
-.. automodule:: sensirion_shdlc_sensorbridge.commands.stop_repeated_transceive
-
-.. automodule:: sensirion_shdlc_sensorbridge.commands.spi_config
-
-.. automodule:: sensirion_shdlc_sensorbridge.commands.spi_transceive
-
-.. automodule:: sensirion_shdlc_sensorbridge.commands.blink
-
-.. automodule:: sensirion_shdlc_sensorbridge.commands.analog_measurement
-
-.. automodule:: sensirion_shdlc_sensorbridge.commands.firmware_update
+.. include:: generated/api_commands.rst
