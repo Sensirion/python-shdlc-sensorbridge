@@ -417,7 +417,7 @@ class SensorBridgeShdlcDevice(ShdlcDevice):
                      sure that no other device has the slave address 0 and
                      baudrate 115200! These connection settings are used by
                      the bootloader and thus two devices would respond to the
-                     bootloader commands. If an update failes because of this,
+                     bootloader commands. If an update fails because of this,
                      you will have to disconnect the other device with address
                      0 and do an emergency update to recover this device.
 
