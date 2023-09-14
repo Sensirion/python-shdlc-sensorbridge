@@ -22,6 +22,7 @@ from .commands import \
     SensorBridgeCmdSpiTransceive, \
     SensorBridgeCmdBlink, \
     SensorBridgeCmdAnalogMeasurement
+from struct import pack, unpack
 
 import logging
 log = logging.getLogger(__name__)
@@ -86,7 +87,11 @@ class SensorBridgeShdlcDevice(ShdlcDevice):
         :rtype: float
         """
         raw_port = port_to_byte(port, accept_all=False)
-        return self.execute(SensorBridgeCmdAnalogMeasurement(raw_port))
+        value = self.execute(SensorBridgeCmdAnalogMeasurement(raw_port))
+        # Workaround for firmware issue:
+        # Change endianness of returned float value. Sensor bridge firmware uses
+        # little-endian to transfer the float, but SHDLC expects a big-endian.
+        return float(unpack("<f", pack(">f", value))[0])
 
     def set_supply_voltage(self, port, voltage):
         """
