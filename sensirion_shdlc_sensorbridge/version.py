@@ -2,4 +2,4 @@
 # (c) Copyright 2020 Sensirion AG, Switzerland
 
 from __future__ import absolute_import, division, print_function
-version = "0.2.0"
+version = "0.2.1"
