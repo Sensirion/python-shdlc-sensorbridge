@@ -186,7 +186,7 @@
 
 
 <div class="viewcode-block" id="SensorBridgeCmdDeviceInformationBase"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.device_information.SensorBridgeCmdDeviceInformationBase">[docs]</a><span class="k">class</span> <span class="nc">SensorBridgeCmdDeviceInformationBase</span><span class="p">(</span><span class="n">ShdlcCommand</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    SHDLC command 0xD0: &quot;Device Information&quot;.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -198,7 +198,7 @@
 <div class="viewcode-block" id="SensorBridgeCmdGetProductType"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.device_information.SensorBridgeCmdGetProductType">[docs]</a><span class="k">class</span> <span class="nc">SensorBridgeCmdGetProductType</span><span class="p">(</span><span class="n">SensorBridgeCmdDeviceInformationBase</span><span class="p">):</span>
 
 <div class="viewcode-block" id="SensorBridgeCmdGetProductType.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.device_information.SensorBridgeCmdGetProductType.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get Product Type Command</span>
 
 <span class="sd">        Gets the product type from the device.</span>
@@ -213,7 +213,7 @@
 
 <div class="viewcode-block" id="SensorBridgeCmdGetProductType.interpret_response"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.device_information.SensorBridgeCmdGetProductType.interpret_response">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">interpret_response</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :return: String containing the product type.</span>
 <span class="sd">        :rtype: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -224,7 +224,7 @@
 <div class="viewcode-block" id="SensorBridgeCmdGetProductName"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.device_information.SensorBridgeCmdGetProductName">[docs]</a><span class="k">class</span> <span class="nc">SensorBridgeCmdGetProductName</span><span class="p">(</span><span class="n">SensorBridgeCmdDeviceInformationBase</span><span class="p">):</span>
 
 <div class="viewcode-block" id="SensorBridgeCmdGetProductName.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.device_information.SensorBridgeCmdGetProductName.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get Product Name Command</span>
 
 <span class="sd">        Gets the product name from the device.</span>
@@ -239,7 +239,7 @@
 
 <div class="viewcode-block" id="SensorBridgeCmdGetProductName.interpret_response"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.device_information.SensorBridgeCmdGetProductName.interpret_response">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">interpret_response</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :return: String containing the product name.</span>
 <span class="sd">        :rtype: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -250,7 +250,7 @@
 <div class="viewcode-block" id="SensorBridgeCmdGetArticleCode"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.device_information.SensorBridgeCmdGetArticleCode">[docs]</a><span class="k">class</span> <span class="nc">SensorBridgeCmdGetArticleCode</span><span class="p">(</span><span class="n">SensorBridgeCmdDeviceInformationBase</span><span class="p">):</span>
 
 <div class="viewcode-block" id="SensorBridgeCmdGetArticleCode.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.device_information.SensorBridgeCmdGetArticleCode.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get Article Code Command</span>
 
 <span class="sd">        Gets the article code from the device.</span>
@@ -265,7 +265,7 @@
 
 <div class="viewcode-block" id="SensorBridgeCmdGetArticleCode.interpret_response"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.device_information.SensorBridgeCmdGetArticleCode.interpret_response">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">interpret_response</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :return: String containing the article code.</span>
 <span class="sd">        :rtype: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -276,7 +276,7 @@
 <div class="viewcode-block" id="SensorBridgeCmdGetSerialNumber"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.device_information.SensorBridgeCmdGetSerialNumber">[docs]</a><span class="k">class</span> <span class="nc">SensorBridgeCmdGetSerialNumber</span><span class="p">(</span><span class="n">SensorBridgeCmdDeviceInformationBase</span><span class="p">):</span>
 
 <div class="viewcode-block" id="SensorBridgeCmdGetSerialNumber.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.device_information.SensorBridgeCmdGetSerialNumber.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get Serial Number Command</span>
 
 <span class="sd">        Gets the serial number from the device.</span>
@@ -291,7 +291,7 @@
 
 <div class="viewcode-block" id="SensorBridgeCmdGetSerialNumber.interpret_response"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.device_information.SensorBridgeCmdGetSerialNumber.interpret_response">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">interpret_response</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :return: String containing the serial number.</span>
 <span class="sd">        :rtype: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -309,7 +309,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2022 Sensirion AG, Switzerland
+        &copy; Copyright 2023 Sensirion AG, Switzerland
 
     </p>
   </div>

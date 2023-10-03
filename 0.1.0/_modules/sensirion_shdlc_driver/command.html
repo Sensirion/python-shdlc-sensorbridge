@@ -165,14 +165,14 @@
 
 
 <span class="k">class</span> <span class="nc">ShdlcCommand</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Base class for all SHDLC commands.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">max_response_time</span><span class="p">,</span>
                  <span class="n">min_response_length</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_response_length</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span>
                  <span class="n">post_processing_time</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Constructor.</span>
 
 <span class="sd">        :param byte id:  Command ID (0..255).</span>
@@ -195,7 +195,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the command ID.</span>
 
 <span class="sd">        :return: Command ID (0..255).</span>
@@ -205,7 +205,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the command data (payload).</span>
 
 <span class="sd">        :return: Command data (length 0..255).</span>
@@ -215,7 +215,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">max_response_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the maximum response time for this command.</span>
 
 <span class="sd">        :return: Maximum response time in seconds.</span>
@@ -225,7 +225,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">post_processing_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the post processing time for this command. The post processing time</span>
 <span class="sd">        defines how long a device needs to execute a command *after* responding</span>
 <span class="sd">        to the SHDLC command. Most devices don&#39;t need post processing (command</span>
@@ -238,7 +238,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_post_processing_time</span>
 
     <span class="k">def</span> <span class="nf">check_response_length</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check if the response length is correct.</span>
 
 <span class="sd">        :param bytes data: Raw data (payload) received from the device.</span>
@@ -251,7 +251,7 @@
                 <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_min_rx_len</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_rx_len</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)),</span> <span class="n">data</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">interpret_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Interpret the response to this command received from the device. This</span>
 <span class="sd">        converts the raw byte array to the actual data type(s) depending on the</span>
 <span class="sd">        sent command.</span>
@@ -274,7 +274,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2022 Sensirion AG, Switzerland
+        &copy; Copyright 2023 Sensirion AG, Switzerland
 
     </p>
   </div>

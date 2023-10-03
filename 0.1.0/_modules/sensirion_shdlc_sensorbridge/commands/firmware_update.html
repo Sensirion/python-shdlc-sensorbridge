@@ -186,7 +186,7 @@
 
 
 <div class="viewcode-block" id="SensorBridgeCmdFirmwareUpdateBase"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.firmware_update.SensorBridgeCmdFirmwareUpdateBase">[docs]</a><span class="k">class</span> <span class="nc">SensorBridgeCmdFirmwareUpdateBase</span><span class="p">(</span><span class="n">ShdlcCommand</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    SHDLC command 0xF3: &quot;Firmware Update&quot;.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -198,7 +198,7 @@
 <div class="viewcode-block" id="SensorBridgeCmdEnterBootloader"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.firmware_update.SensorBridgeCmdEnterBootloader">[docs]</a><span class="k">class</span> <span class="nc">SensorBridgeCmdEnterBootloader</span><span class="p">(</span><span class="n">SensorBridgeCmdFirmwareUpdateBase</span><span class="p">):</span>
 
 <div class="viewcode-block" id="SensorBridgeCmdEnterBootloader.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.firmware_update.SensorBridgeCmdEnterBootloader.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Enter Bootloader Command</span>
 
 <span class="sd">        Command to enter into the bootloader mode. The device will reboot into</span>
@@ -221,7 +221,7 @@
 <div class="viewcode-block" id="SensorBridgeCmdStartUpdate"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.firmware_update.SensorBridgeCmdStartUpdate">[docs]</a><span class="k">class</span> <span class="nc">SensorBridgeCmdStartUpdate</span><span class="p">(</span><span class="n">SensorBridgeCmdFirmwareUpdateBase</span><span class="p">):</span>
 
 <div class="viewcode-block" id="SensorBridgeCmdStartUpdate.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.firmware_update.SensorBridgeCmdStartUpdate.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Start Update Command</span>
 
 <span class="sd">        Command to start the firmware update. The devices flash will be erased</span>
@@ -242,7 +242,7 @@
 <div class="viewcode-block" id="SensorBridgeCmdUpdateData"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.firmware_update.SensorBridgeCmdUpdateData">[docs]</a><span class="k">class</span> <span class="nc">SensorBridgeCmdUpdateData</span><span class="p">(</span><span class="n">SensorBridgeCmdFirmwareUpdateBase</span><span class="p">):</span>
 
 <div class="viewcode-block" id="SensorBridgeCmdUpdateData.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.firmware_update.SensorBridgeCmdUpdateData.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Update Data Command</span>
 
 <span class="sd">        Command to send the new firmware data as hex code in binary format.</span>
@@ -267,7 +267,7 @@
 <div class="viewcode-block" id="SensorBridgeCmdStopUpdate"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.firmware_update.SensorBridgeCmdStopUpdate">[docs]</a><span class="k">class</span> <span class="nc">SensorBridgeCmdStopUpdate</span><span class="p">(</span><span class="n">SensorBridgeCmdFirmwareUpdateBase</span><span class="p">):</span>
 
 <div class="viewcode-block" id="SensorBridgeCmdStopUpdate.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.firmware_update.SensorBridgeCmdStopUpdate.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">checksum</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Stop Update Command</span>
 
 <span class="sd">        After all update data frames are sent, the stop update marks the end of</span>
@@ -304,7 +304,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2022 Sensirion AG, Switzerland
+        &copy; Copyright 2023 Sensirion AG, Switzerland
 
     </p>
   </div>

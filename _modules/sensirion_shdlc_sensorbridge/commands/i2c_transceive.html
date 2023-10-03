@@ -186,7 +186,7 @@
 
 
 <div class="viewcode-block" id="SensorBridgeCmdI2cTransceiveBase"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.i2c_transceive.SensorBridgeCmdI2cTransceiveBase">[docs]</a><span class="k">class</span> <span class="nc">SensorBridgeCmdI2cTransceiveBase</span><span class="p">(</span><span class="n">ShdlcCommand</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    SHDLC command 0x11: &quot;I2c Transceive&quot;.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -198,7 +198,7 @@
 <div class="viewcode-block" id="SensorBridgeCmdFirstTransceive"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.i2c_transceive.SensorBridgeCmdFirstTransceive">[docs]</a><span class="k">class</span> <span class="nc">SensorBridgeCmdFirstTransceive</span><span class="p">(</span><span class="n">SensorBridgeCmdI2cTransceiveBase</span><span class="p">):</span>
 
 <div class="viewcode-block" id="SensorBridgeCmdFirstTransceive.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.i2c_transceive.SensorBridgeCmdFirstTransceive.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">i2c_address</span><span class="p">,</span> <span class="n">tx_length</span><span class="p">,</span> <span class="n">rx_length</span><span class="p">,</span> <span class="n">timeout_us</span><span class="p">,</span> <span class="n">tx_data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        First Transceive Command</span>
 
 <span class="sd">        First frame of a transceive command.</span>
@@ -239,7 +239,7 @@
 
 <div class="viewcode-block" id="SensorBridgeCmdFirstTransceive.interpret_response"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.i2c_transceive.SensorBridgeCmdFirstTransceive.interpret_response">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">interpret_response</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :return: If needed/available, the bytes from the I2C read are returned.</span>
 <span class="sd">        :rtype: bytes</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -250,7 +250,7 @@
 <div class="viewcode-block" id="SensorBridgeCmdSubsequentTransceive"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.i2c_transceive.SensorBridgeCmdSubsequentTransceive">[docs]</a><span class="k">class</span> <span class="nc">SensorBridgeCmdSubsequentTransceive</span><span class="p">(</span><span class="n">SensorBridgeCmdI2cTransceiveBase</span><span class="p">):</span>
 
 <div class="viewcode-block" id="SensorBridgeCmdSubsequentTransceive.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.i2c_transceive.SensorBridgeCmdSubsequentTransceive.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">tx_data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Subsequent Transceive Command</span>
 
 <span class="sd">        Subsequent frame of a transceive command.</span>
@@ -275,7 +275,7 @@
 
 <div class="viewcode-block" id="SensorBridgeCmdSubsequentTransceive.interpret_response"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.i2c_transceive.SensorBridgeCmdSubsequentTransceive.interpret_response">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">interpret_response</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :return: If needed/available, the bytes from the I2C read are returned.</span>
 <span class="sd">        :rtype: bytes</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -293,7 +293,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2022 Sensirion AG, Switzerland
+        &copy; Copyright 2023 Sensirion AG, Switzerland
 
     </p>
   </div>

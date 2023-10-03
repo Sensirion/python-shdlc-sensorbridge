@@ -167,7 +167,7 @@
 
 
 <span class="k">class</span> <span class="nc">ShdlcFirmwareImage</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This class represents a firmware image for an SHDLC device. It is used to</span>
 <span class="sd">    load and verify Intel-Hex files for performing firmware updates over SHDLC.</span>
 
@@ -189,7 +189,7 @@
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hexfile</span><span class="p">,</span> <span class="n">bl_start_addr</span><span class="p">,</span> <span class="n">app_start_addr</span><span class="p">,</span>
                  <span class="n">signature</span><span class="o">=</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x4A\x47\x4F\x4B</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">bl_version_offset</span><span class="o">=</span><span class="mh">0x1004</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Constructor which loads and parses the firmware from a hex file.</span>
 
 <span class="sd">        :param str/file hexfile:    The filename or file-like object containing</span>
@@ -232,7 +232,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">product_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the product type for which the loaded firmware is made.</span>
 
 <span class="sd">        :return: Product type as an integer.</span>
@@ -242,7 +242,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">bootloader_version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the bootloader version which is contained in the loaded image.</span>
 
 <span class="sd">        :return: Bootloader version (note: debug flag is not supported, it&#39;s</span>
@@ -253,7 +253,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">application_version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the application firmware version which is contained in the loaded</span>
 <span class="sd">        image.</span>
 
@@ -265,7 +265,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">checksum</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the checksum over the application firmware part of the loaded</span>
 <span class="sd">        image. This is the checksum which needs to be sent to the product</span>
 <span class="sd">        bootloader.</span>
@@ -277,7 +277,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the size of the application firmware.</span>
 
 <span class="sd">        :return: Size in bytes.</span>
@@ -287,7 +287,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">available_bytes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the count of available bytes left.</span>
 
 <span class="sd">        :return: Count of available bytes.</span>
@@ -296,7 +296,7 @@
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_app_data</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_app_data_index</span>
 
     <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Read the next bytes of the application firmware.</span>
 
 <span class="sd">        :param int size:    Maximum count of bytes to read (-1 reads all</span>
@@ -313,7 +313,7 @@
         <span class="k">return</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># immutable type to avoid modifying image data</span>
 
     <span class="k">def</span> <span class="nf">_check_signature</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check the signature of the loaded image and throw an exception if it&#39;s</span>
 <span class="sd">        invalid.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -323,7 +323,7 @@
             <span class="k">raise</span> <span class="n">ShdlcFirmwareImageSignatureError</span><span class="p">(</span><span class="n">signature</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_read_product_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Read the product type from the loaded image.</span>
 
 <span class="sd">        :return: The read product type.</span>
@@ -333,7 +333,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_uint32</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_read_bootloader_version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Read the bootloader version from the loaded image.</span>
 
 <span class="sd">        :return: The read bootloader version.</span>
@@ -346,7 +346,7 @@
                                <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_read_application_version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Read the application version from the loaded image.</span>
 
 <span class="sd">        :return: The read application version.</span>
@@ -361,7 +361,7 @@
                                <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_read_application_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Read the application data block from the loaded image.</span>
 
 <span class="sd">        :return: The read application data block.</span>
@@ -376,7 +376,7 @@
         <span class="k">return</span> <span class="nb">bytearray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">tobinarray</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">start_addr</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">end_addr</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">_read_uint32</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Read an uint32 at a specific image address.</span>
 
 <span class="sd">        :param int address: The address to read from.</span>
@@ -386,7 +386,7 @@
         <span class="k">return</span> <span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&lt;I&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">tobinarray</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">address</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">_read_bytes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">number_of_bytes</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Read at a specific image address.</span>
 
 <span class="sd">        :param int address: The address to read from.</span>
@@ -397,7 +397,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">tobinstr</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">address</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">number_of_bytes</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_calc_application_checksum</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate the checksum over the application data, as needed for the</span>
 <span class="sd">        firmware download command.</span>
 
@@ -417,7 +417,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2022 Sensirion AG, Switzerland
+        &copy; Copyright 2023 Sensirion AG, Switzerland
 
     </p>
   </div>

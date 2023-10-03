@@ -178,13 +178,14 @@
     <span class="n">SensorBridgeCmdSpiTransceive</span><span class="p">,</span> \
     <span class="n">SensorBridgeCmdBlink</span><span class="p">,</span> \
     <span class="n">SensorBridgeCmdAnalogMeasurement</span>
+<span class="kn">from</span> <span class="nn">struct</span> <span class="kn">import</span> <span class="n">pack</span><span class="p">,</span> <span class="n">unpack</span>
 
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="SensorBridgeShdlcDevice"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice">[docs]</a><span class="k">class</span> <span class="nc">SensorBridgeShdlcDevice</span><span class="p">(</span><span class="n">ShdlcDevice</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    SEK-SensorBridge device.</span>
 
 <span class="sd">    This is a low-level driver which just provides all SHDLC commands as Python</span>
@@ -200,7 +201,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="SensorBridgeShdlcDevice.__init__"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">connection</span><span class="p">,</span> <span class="n">slave_address</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create a SensorBridge device instance on an SHDLC connection.</span>
 
 <span class="sd">        .. note:: This constructor does not communicate with the device, so</span>
@@ -219,7 +220,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_register_device_errors</span><span class="p">(</span><span class="n">SENSORBRIDGE_DEVICE_ERROR_LIST</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="SensorBridgeShdlcDevice.blink_led"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.blink_led">[docs]</a>    <span class="k">def</span> <span class="nf">blink_led</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Let the LEDs on the device blink. Useful for example to identify the</span>
 <span class="sd">        device on a bus.</span>
 
@@ -230,7 +231,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">SensorBridgeCmdBlink</span><span class="p">(</span><span class="n">raw_port</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="SensorBridgeShdlcDevice.measure_voltage"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.measure_voltage">[docs]</a>    <span class="k">def</span> <span class="nf">measure_voltage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Triggers an analog measurement at the AIN pin. The measured voltage</span>
 <span class="sd">        is always positive and in the range of 0-5.5V.</span>
 
@@ -242,10 +243,14 @@
 <span class="sd">        :rtype: float</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">raw_port</span> <span class="o">=</span> <span class="n">port_to_byte</span><span class="p">(</span><span class="n">port</span><span class="p">,</span> <span class="n">accept_all</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">SensorBridgeCmdAnalogMeasurement</span><span class="p">(</span><span class="n">raw_port</span><span class="p">))</span></div>
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">SensorBridgeCmdAnalogMeasurement</span><span class="p">(</span><span class="n">raw_port</span><span class="p">))</span>
+        <span class="c1"># Workaround for firmware issue:</span>
+        <span class="c1"># Change endianness of returned float value. Sensor bridge firmware uses</span>
+        <span class="c1"># little-endian to transfer the float, but SHDLC expects a big-endian.</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&lt;f&quot;</span><span class="p">,</span> <span class="n">pack</span><span class="p">(</span><span class="s2">&quot;&gt;f&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span></div>
 
 <div class="viewcode-block" id="SensorBridgeShdlcDevice.set_supply_voltage"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.set_supply_voltage">[docs]</a>    <span class="k">def</span> <span class="nf">set_supply_voltage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">voltage</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Sets the supply voltage of a port to a certain value.</span>
 
 <span class="sd">        :param ~sensirion_shdlc_sensorbridge.definitions.SensorBridgePort port:</span>
@@ -260,7 +265,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">SensorBridgeCmdSetPortVoltage</span><span class="p">(</span><span class="n">raw_port</span><span class="p">,</span> <span class="n">raw_voltage</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="SensorBridgeShdlcDevice.switch_supply_on"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.switch_supply_on">[docs]</a>    <span class="k">def</span> <span class="nf">switch_supply_on</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Switches a port supply on. The previously set voltage will be applied.</span>
 
 <span class="sd">        :param ~sensirion_shdlc_sensorbridge.definitions.SensorBridgePort port:</span>
@@ -270,7 +275,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">SensorBridgeCmdPortVoltageOnOff</span><span class="p">(</span><span class="n">raw_port</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="SensorBridgeShdlcDevice.switch_supply_off"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.switch_supply_off">[docs]</a>    <span class="k">def</span> <span class="nf">switch_supply_off</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Switches a port supply off.</span>
 
 <span class="sd">        :param ~sensirion_shdlc_sensorbridge.definitions.SensorBridgePort port:</span>
@@ -280,7 +285,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">SensorBridgeCmdPortVoltageOnOff</span><span class="p">(</span><span class="n">raw_port</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="SensorBridgeShdlcDevice.set_i2c_frequency"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.set_i2c_frequency">[docs]</a>    <span class="k">def</span> <span class="nf">set_i2c_frequency</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">frequency</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Sets the I2C frequency to the desired value. The default frequency is</span>
 <span class="sd">        400kHz.</span>
 
@@ -296,7 +301,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">SensorBridgeCmdSetI2cFrequency</span><span class="p">(</span><span class="n">raw_port</span><span class="p">,</span> <span class="n">raw_frequency</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="SensorBridgeShdlcDevice.scan_i2c"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.scan_i2c">[docs]</a>    <span class="k">def</span> <span class="nf">scan_i2c</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">first_address</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">last_address</span><span class="o">=</span><span class="mi">127</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Scans for I2C devices on a specific port within a certain address</span>
 <span class="sd">        range.</span>
 
@@ -319,7 +324,7 @@
         <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">bytearray</span><span class="p">(</span><span class="n">response</span><span class="p">))</span>  <span class="c1"># Py2/3 compatible conversion to list</span></div>
 
 <div class="viewcode-block" id="SensorBridgeShdlcDevice.transceive_i2c"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.transceive_i2c">[docs]</a>    <span class="k">def</span> <span class="nf">transceive_i2c</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">tx_data</span><span class="p">,</span> <span class="n">rx_length</span><span class="p">,</span> <span class="n">timeout_us</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Transceives an I2C frame on a certain port.</span>
 
 <span class="sd">        .. note:: If an I2C error (NACK or timeout) occured, this method raises</span>
@@ -382,7 +387,7 @@
 <div class="viewcode-block" id="SensorBridgeShdlcDevice.start_repeated_i2c_transceive"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.start_repeated_i2c_transceive">[docs]</a>    <span class="k">def</span> <span class="nf">start_repeated_i2c_transceive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">interval_us</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span>
                                       <span class="n">tx_data</span><span class="p">,</span> <span class="n">rx_length</span><span class="p">,</span> <span class="n">timeout_us</span><span class="p">,</span>
                                       <span class="n">read_delay_us</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Starts an asynchronous I2C transceive command in a specific interval.</span>
 <span class="sd">        Multiple parallel repeated transceives are possible. The returned</span>
 <span class="sd">        data is stored in a buffer and can be read out with the</span>
@@ -440,7 +445,7 @@
         <span class="k">return</span> <span class="n">handles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">handles</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">handles</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="SensorBridgeShdlcDevice.stop_repeated_i2c_transceive"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.stop_repeated_i2c_transceive">[docs]</a>    <span class="k">def</span> <span class="nf">stop_repeated_i2c_transceive</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handle</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Stops a repeated transceive operation.</span>
 
 <span class="sd">        :param ~sensirion_shdlc_sensorbridge.types.RepeatedTransceiveHandle handle:</span>
@@ -453,7 +458,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">SensorBridgeCmdStopRepeatedTransceive</span><span class="p">(</span><span class="n">raw_handle</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="SensorBridgeShdlcDevice.read_buffer"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.read_buffer">[docs]</a>    <span class="k">def</span> <span class="nf">read_buffer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handle</span><span class="p">,</span> <span class="n">max_reads</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reads data stored in the buffer of a repeated transceive.</span>
 
 <span class="sd">        This method sends &quot;read buffer&quot; commands to the device until the whole</span>
@@ -520,7 +525,7 @@
                                   <span class="n">remaining_bytes</span><span class="p">,</span> <span class="n">total_rx_data</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="SensorBridgeShdlcDevice.set_spi_config"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.set_spi_config">[docs]</a>    <span class="k">def</span> <span class="nf">set_spi_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">frequency</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Sets the SPI mode and frequency.</span>
 
 <span class="sd">        :param ~sensirion_shdlc_sensorbridge.definitions.SensorBridgePort port:</span>
@@ -539,7 +544,7 @@
                                               <span class="n">raw_frequency</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="SensorBridgeShdlcDevice.transceive_spi"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.transceive_spi">[docs]</a>    <span class="k">def</span> <span class="nf">transceive_spi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">tx_data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Transceives an SPI frame on a certain port.</span>
 
 <span class="sd">        :param ~sensirion_shdlc_sensorbridge.definitions.SensorBridgePort port:</span>
@@ -558,7 +563,7 @@
 
 <div class="viewcode-block" id="SensorBridgeShdlcDevice.update_firmware"><a class="viewcode-back" href="../../api.html#sensirion_shdlc_sensorbridge.device.SensorBridgeShdlcDevice.update_firmware">[docs]</a>    <span class="k">def</span> <span class="nf">update_firmware</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">emergency</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">status_callback</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                         <span class="n">progress_callback</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Update the firmware on the device.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update the firmware on the device.</span>
 
 <span class="sd">        This method allows you to download a new firmware (provided as a</span>
 <span class="sd">        \\*.hex file) to the device. A device reset is performed after the</span>
@@ -610,7 +615,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2022 Sensirion AG, Switzerland
+        &copy; Copyright 2023 Sensirion AG, Switzerland
 
     </p>
   </div>

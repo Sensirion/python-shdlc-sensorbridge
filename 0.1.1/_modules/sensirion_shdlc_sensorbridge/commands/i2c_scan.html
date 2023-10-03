@@ -186,7 +186,7 @@
 
 
 <div class="viewcode-block" id="SensorBridgeCmdI2cScanBase"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.i2c_scan.SensorBridgeCmdI2cScanBase">[docs]</a><span class="k">class</span> <span class="nc">SensorBridgeCmdI2cScanBase</span><span class="p">(</span><span class="n">ShdlcCommand</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    SHDLC command 0x10: &quot;I2c Scan&quot;.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -198,7 +198,7 @@
 <div class="viewcode-block" id="SensorBridgeCmdI2cScan"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.i2c_scan.SensorBridgeCmdI2cScan">[docs]</a><span class="k">class</span> <span class="nc">SensorBridgeCmdI2cScan</span><span class="p">(</span><span class="n">SensorBridgeCmdI2cScanBase</span><span class="p">):</span>
 
 <div class="viewcode-block" id="SensorBridgeCmdI2cScan.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.i2c_scan.SensorBridgeCmdI2cScan.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">first_address</span><span class="p">,</span> <span class="n">last_address</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        I2c Scan Command</span>
 
 <span class="sd">        Scans for I2C devices on a specific port within a certain address</span>
@@ -226,7 +226,7 @@
 
 <div class="viewcode-block" id="SensorBridgeCmdI2cScan.interpret_response"><a class="viewcode-back" href="../../../api.html#sensirion_shdlc_sensorbridge.commands.i2c_scan.SensorBridgeCmdI2cScan.interpret_response">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">interpret_response</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :return: Array of bytes containing all addresses from devices which</span>
 <span class="sd">                 responded to the scan.</span>
 <span class="sd">        :rtype: bytes</span>
@@ -245,7 +245,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2022 Sensirion AG, Switzerland
+        &copy; Copyright 2023 Sensirion AG, Switzerland
 
     </p>
   </div>
