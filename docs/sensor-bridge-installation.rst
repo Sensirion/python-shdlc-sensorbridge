@@ -37,6 +37,7 @@ To automate it on startup, one may create a custom udev rule:
 Now one may reload the created rules and trigger them as super user:
 
 .. sourcecode:: bash
+
     udevadm control --reload-rules
     udevadm trigger
 
