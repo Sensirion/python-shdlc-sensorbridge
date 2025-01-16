@@ -15,6 +15,7 @@ Contents
 
    shdlc
    installation
+   sensor-bridge-installation
    quickstart
    api
 
