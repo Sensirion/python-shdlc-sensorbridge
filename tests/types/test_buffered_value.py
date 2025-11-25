@@ -2,9 +2,11 @@
 # (c) Copyright 2020 Sensirion AG, Switzerland
 
 from __future__ import absolute_import, division, print_function
-from sensirion_shdlc_sensorbridge.types import BufferedValue
-from sensirion_shdlc_sensorbridge.i2c_errors import SensorBridgeI2cNackError
+
 import pytest
+
+from sensirion_shdlc_sensorbridge.i2c_errors import SensorBridgeI2cNackError
+from sensirion_shdlc_sensorbridge.types import BufferedValue
 
 
 @pytest.mark.parametrize("rx_data,raw_status,raw_data,error_type", [
@@ -18,11 +20,11 @@ def test_members(rx_data, raw_status, raw_data, error_type):
     Test if the BufferedValue members are properly initialized.
     """
     value = BufferedValue(rx_data)
-    assert type(value.raw_status) is int
+    assert isinstance(value.raw_status, int)
     assert value.raw_status == raw_status
-    assert type(value.raw_data) is bytes
+    assert isinstance(value.raw_data, bytes)
     assert value.raw_data == raw_data
-    assert type(value.error) == error_type
+    assert isinstance(value.error, error_type)
 
 
 def test_data_valid():
@@ -31,7 +33,7 @@ def test_data_valid():
     error occurred.
     """
     value = BufferedValue(b"\x00\x11\x22\x33")
-    assert type(value.data) == bytes
+    assert isinstance(value.data, bytes)
     assert value.data == b"\x11\x22\x33"
 
 
