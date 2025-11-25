@@ -23,6 +23,6 @@ def test(code, expected_return_type):
     if expected_return_type is None:
         assert error is None
     else:
-        assert type(error) == expected_return_type
+        assert isinstance(error, expected_return_type)
         assert error.error_code == code
         assert len(error.error_message) > 0
