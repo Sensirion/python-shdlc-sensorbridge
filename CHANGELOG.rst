@@ -1,6 +1,10 @@
 CHANGELOG
 ---------
 
+1.0.0
+:::::
+- Update project structure
+
 0.2.0
 :::::
 - Fix for endianness of returned float on ``measure_voltage()`` command
